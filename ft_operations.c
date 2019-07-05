@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:15:15 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/05 13:11:40 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/05 13:26:41 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ int main(int ac, char *av[])
 	int 	i = 0;
 	int 	arg[ac - 1];
 
-	while(i < ac && **av)
-		arg[i] = ft_atoi(av[i + 1]);
+	*arg = *av;
+	ft_striter(arg, ft_atoi());
 	stack = ft_stacknew(arg, ac);
 
 	while (stack->next)

@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/30 10:07:44 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/05 13:09:48 by rengelbr         ###   ########.fr       */
+/*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
+/*   Updated: 2019/07/05 12:33:19 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-void	ft_striter(char *s, void (*f)(char *))
+typedef struct		s_stack
 {
-	if (s && f)
-	{
-		while (*s)
-			f(s++);
-	}
-}
+	int				value;
+	struct s_stack	*next;
+}					t_stack;
+
+#endif

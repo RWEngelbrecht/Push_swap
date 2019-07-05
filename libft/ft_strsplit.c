@@ -6,30 +6,11 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 12:00:05 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/06/10 10:38:46 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/05 11:50:48 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int		ft_wordcount(char const *str, char c)
-{
-	int		count;
-	int		i;
-
-	count = 0;
-	i = 0;
-	while (str[i] != '\0')
-	{
-		while (str[i] == c)
-			i++;
-		if (str[i] != c && str[i] != '\0')
-			count++;
-		while (str[i] != c && str[i] != '\0')
-			i++;
-	}
-	return (count);
-}
 
 static int		wordlen(char const *str, char c)
 {

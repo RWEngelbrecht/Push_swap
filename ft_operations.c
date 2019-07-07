@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:15:15 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/07 13:50:40 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/07 14:48:27 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,40 @@
 #include "push_swap.h"
 #include "libft/libft.h"
 
-t_stack	*ft_stacknew(int argc, char *argv)
+void	ft_push(t_stack **head, int val)
 {
-	t_stack *stack;
-	t_stack *node;
+	t_stack	*node;
 
-	int i;
+	node = malloc(sizeof(t_stack));
+	node->value = val;
+	node->next = *head;
+	*head = node;
+}
 
-	if (argc <= 1)
-		return (NULL);
-	i = argc;
-	stack = malloc(sizeof(t_stack));
-	stack->value = ft_atoi(&argv[i]);
-	stack->next = NULL;
-	i--;
-	while (i > 1)
+t_stack	*ft_stacknew(int argc, char **argv)
+{
+	t_stack	*stack_a;
+	int		i;
+	if (argc < 2)
 	{
-		node->value = ft_atoi(&argv[i]);
-		node = node->next;
+		ft_putstr_fd("Error\n", 2);
+		return (0);
+	}
+	if (!(stack_a = malloc(sizeof(t_stack))))
+	{
+		ft_putstr_fd("Error\n", 2);
+		return (0);
+	}
+	i = argc;
+	stack_a->value = ft_atoi(argv[i - 1]);
+	stack_a->next = NULL;
+	i--;
+	while (i >= 1)
+	{
+		ft_push(&stack_a, ft_atoi(argv[i]));
 		i--;
 	}
-	node->next = stack;
-	stack = node;
-	return (stack);
+	return (stack_a);
 }
 
 void	ft_swap_a(t_stack **a)
@@ -54,32 +65,11 @@ void	ft_swap_a(t_stack **a)
 int main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
-	t_stack *node_a;
-	int i;
-	t_stack *print;
+	t_stack	*print;
 
-	i = (argc - 1);
-	stack_a = malloc(sizeof(t_stack));
-	stack_a->value = ft_atoi(argv[i]);
-	stack_a->next = NULL;
-	i--;
-	while (i > 1)
-	{
-		printf("%s\n", "entered while loop");
-		node_a = malloc(sizeof(t_stack));
-		node_a->value = ft_atoi(argv[i]);
-		i--;
-		printf("i = | %d |\n", i);
-		if (i <= 1)
-			break ;
-		else
-			node_a = node_a->next;
-	}
-	node_a->next = stack_a;
-	stack_a = node_a;
-	printf("stack_a node 1 = | %d |\n", stack_a->value);
-	//a_node = ft_stacknew(i, args);
+	stack_a = ft_stacknew(argc, argv);
 	print = stack_a;
+	ft_swap_a(&print);
 	while (print->next != NULL)
 	{
 		printf("print val 1 = | %d |\n", print->value);

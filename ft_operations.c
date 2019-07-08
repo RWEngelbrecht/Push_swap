@@ -6,15 +6,11 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:15:15 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/08 11:13:42 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/08 14:24:33 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include "push_swap.h"
-#include "libft/libft.h"
 
 /******      Stack creation + pushing      ******/
 
@@ -64,47 +60,72 @@ void	ft_print_stack(t_stack **stack)
 }
 /************************************************/
 /*******************OPERATIONS*******************/
-void	ft_swap(t_stack **ab)
+void	ft_sa(t_stack **a)
 {
 	t_stack *tmp;
 
-	tmp = *ab;
-	*ab = (*ab)->next;
-	tmp->next = (*ab)->next;
-	(*ab)->next = tmp;
+	tmp = *a;
+	*a = (*a)->next;
+	tmp->next = (*a)->next;
+	(*a)->next = tmp;
 }
 
-void	ft_push(t_stack **dst, t_stack **src)
+void	ft_sb(t_stack **b)
 {
-	if (!(*dst))
+	t_stack *tmp;
+
+	tmp = *b;
+	*b = (*b)->next;
+	tmp->next = (*b)->next;
+	(*b)->next = tmp;
+}
+
+void	ft_ss(t_stack **a, t_stack **b)
+{
+	ft_sa(a);
+	ft_sb(b);
+}
+
+void	ft_pa(t_stack **dsta, t_stack **srcb)
+{
+	
+	if (*srcb && *dsta)
 	{
-		*dst = malloc(sizeof(t_stack));
-		(*dst)->value = (*src)->value;
-		(*dst)->next
+		(*srcb)->next = *dsta;
+		*dsta = *srcb;
 	}
-	if (*src && *dst)
-	{
-		(*src)->next = *dst;
-		*dst = *src;
-	}
+}
+
+// void	ft_pb(t_stack **dst_b, t_stack **src_a)
+// {
+// 	if (!(*dst_b))
+// 	{
+// 		*dst_b = malloc(sizeof(t_stack));
+// 		(*dst_b)->value = (*src_a)->value;
+// 		(*dst_b)->next = NULL;
+// 		//free(&(*src_a));
+// 	}
+// 	else
+// 	{
+// 		(*src_a)->next = *dst_b;
+// 		*dst_b = *src_a;
+// 	}
+// }
+
+void	ft_ra(t_stack **a)
+{
+	t_stack *first;
+	t_stack *last;
+
+	first = *a;
+	last = *a;
+	if (*a == NULL || (*a)->next == NULL)
+		return ;
+	while (last->next != NULL)
+		last = last->next;
+	first->next = NULL;
+	(*a)->next = 
+	last->next = first;
+
 }
 /************************************************/
-int main(int argc, char *argv[])
-{
-	t_stack	*stack_a;
-	t_stack *stack_b;
-
-	if (argc < 2)
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (0);
-	}
-	stack_a = ft_stacknew(argc, argv);
-	ft_swap(&stack_a);
-	ft_push(&stack_b)
-	printf("%s ", "stack_a:");
-	ft_print_stack(&stack_a);
-
-
-	return (0);
-}

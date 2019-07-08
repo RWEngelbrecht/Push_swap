@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:15:15 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/08 16:13:27 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/08 16:40:54 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_stack	*ft_stacknew(int argc, char **argv)
 	i--;
 	while (i >= 1)
 	{
-		ft_addnode(&stack_a, ft_atoi(argv[i]));
+		ft_addnode(&stack_a, ft_atoi(argv[i - 1]));
 		i--;
 	}
 	return (stack_a);
@@ -51,12 +51,11 @@ void	ft_print_stack(t_stack **stack)
 	t_stack	*print;
 
 	print = *stack;
-	while (print->next)
+	while (print != NULL)
 	{
 		ft_putnbr(print->value);
 		ft_putchar('\n');
-		if (print->next != NULL)
-			print = print->next;
+		print = print->next;
 	}
 }
 /************************************************/
@@ -118,18 +117,14 @@ void	ft_ra(t_stack **a)
 	t_stack *first;
 	t_stack *last;
 
-	first = *a;
+	first = (*a)->next;
 	last = *a;
-	if (*a == NULL || (*a)->next == NULL)
+	if ((*a)->next == NULL || (*a)->next->next == NULL)
 		return ;
 	while (last->next != NULL)
 		last = last->next;
-	(*a)->next = first->next;
-	last->next = first;
+	(*a) = first->next;
 	first->next = NULL;
-	// first->next = NULL;
-	// (*a)->next = 
-	// last->next = first;
-
+	last->next = first;
 }
 /************************************************/

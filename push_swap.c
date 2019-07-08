@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 11:46:43 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/08 14:13:12 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/08 15:48:02 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 	stack_a = ft_stacknew(argc, argv);
-	//ft_sa(&stack_a);
 
 	ft_ra(&stack_a);
+	ft_sa(&stack_a);
 	ft_print_stack(&stack_a);
+
 	
 	return (0);
 }

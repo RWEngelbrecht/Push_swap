@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:15:15 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/08 14:24:33 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/08 16:13:27 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,12 @@ void	ft_print_stack(t_stack **stack)
 	t_stack	*print;
 
 	print = *stack;
-	while (print->next != NULL)
+	while (print->next)
 	{
 		ft_putnbr(print->value);
 		ft_putchar('\n');
-		print = print->next;
+		if (print->next != NULL)
+			print = print->next;
 	}
 }
 /************************************************/
@@ -88,7 +89,7 @@ void	ft_ss(t_stack **a, t_stack **b)
 
 void	ft_pa(t_stack **dsta, t_stack **srcb)
 {
-	
+
 	if (*srcb && *dsta)
 	{
 		(*srcb)->next = *dsta;
@@ -123,9 +124,12 @@ void	ft_ra(t_stack **a)
 		return ;
 	while (last->next != NULL)
 		last = last->next;
-	first->next = NULL;
-	(*a)->next = 
+	(*a)->next = first->next;
 	last->next = first;
+	first->next = NULL;
+	// first->next = NULL;
+	// (*a)->next = 
+	// last->next = first;
 
 }
 /************************************************/

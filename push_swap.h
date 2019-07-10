@@ -23,12 +23,13 @@ typedef struct		s_stack
 }					t_stack;
 
 void				ft_addnode(t_stack **head, int val);
-t_stack				*ft_stacknew(int argc, char **argv);
+t_stack				*ft_stackpopulate(int argc, char **argv);
 void				ft_print_stack(t_stack **stack);
-void	ft_sa(t_stack **a);
-void	ft_sb(t_stack **b);
-void	ft_ss(t_stack **a, t_stack **b);
-void	ft_pa(t_stack **dsta, t_stack **srcb);
-void	ft_ra(t_stack **a);
+void				ft_sa(t_stack **a);
+void				ft_sb(t_stack **b);
+void				ft_ss(t_stack **a, t_stack **b);
+void				ft_pa(t_stack **dsta, t_stack **srcb);
+void				ft_ra(t_stack **a);
+void				ft_rra(t_stack **a);
 
 #endif

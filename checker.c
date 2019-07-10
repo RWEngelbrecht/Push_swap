@@ -23,12 +23,16 @@ int main(int argc, char *argv[])
 		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}
-	stack_a = ft_stacknew(argc, argv);
+	stack_a = ft_stackpopulate(argc, argv);
 
 //	ft_ra(&stack_a);
-	ft_sa(&stack_a);
-	ft_print_stack(&stack_a);
+//	ft_sa(&stack_a);
+//	ft_rra(&stack_a);
+ft_pa(&stack_b, &stack_a);
+ft_print_stack(&stack_a);
+printf("\n");
+ft_print_stack(&stack_b);
 
 	
-	return (0);
+return (0);
 }

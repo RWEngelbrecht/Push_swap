@@ -24,26 +24,32 @@ void	ft_addnode(t_stack **head, int val)
 	*head = node;
 }
 
-t_stack	*ft_stacknew(int argc, char **argv)
+t_stack	*ft_stackpopulate(int argc, char **argv)
 {
-	t_stack	*stack_a;
+	t_stack	*stack;
 	int		i;
 
-	if (!(stack_a = malloc(sizeof(t_stack))))
+	if (!(stack = malloc(sizeof(t_stack))))
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}
-	i = argc;
-	stack_a->value = ft_atoi(argv[i - 1]);
-	stack_a->next = NULL;
+	// if (**argv == NULL)
+	// {
+	// 	stack->value = 0;
+	// 	stack->next = NULL;
+	// 	return (0);
+	// }
+	i = argc - 1;
+	stack->value = ft_atoi(argv[i]);
+	stack->next = NULL;
 	i--;
 	while (i >= 1)
 	{
-		ft_addnode(&stack_a, ft_atoi(argv[i - 1]));
+		ft_addnode(&stack, ft_atoi(argv[i]));
 		i--;
 	}
-	return (stack_a);
+	return (stack);
 }
 /************************************************/
 void	ft_print_stack(t_stack **stack)
@@ -86,14 +92,24 @@ void	ft_ss(t_stack **a, t_stack **b)
 	ft_sb(b);
 }
 
-void	ft_pa(t_stack **dsta, t_stack **srcb)
+void	ft_pb(t_stack **dst_b, t_stack **src_a)
 {
+	t_stack *p_node;
+	t_stack *temp;
 
-	if (*srcb && *dsta)
+	if (!(*src_a))
 	{
-		(*srcb)->next = *dsta;
-		*dsta = *srcb;
+		ft_putstr_fd("Error\n", 2);
+		return ;
 	}
+	p_node = malloc(sizeof(t_stack));
+	p_node->value = (*src_a)->value;
+	p_node->next = *dst_b;
+	*dst_b = p_node;
+	free((p_node));
+	temp = *src_a;
+	*src_a = (*src_a)->next;
+	
 }
 
 // void	ft_pb(t_stack **dst_b, t_stack **src_a)
@@ -126,5 +142,22 @@ void	ft_ra(t_stack **a)
 	(*a) = first->next;
 	first->next = NULL;
 	last->next = first;
+}
+
+void	ft_rra(t_stack **a)
+{
+	t_stack *scnd_last;
+	t_stack *last;
+
+	scnd_last = NULL;	
+	last = *a;
+	while (last->next != NULL)
+	{
+		scnd_last = last;
+		last = last->next;
+	}
+	scnd_last->next = NULL;
+	last->next = *a;
+	*a = last;
 }
 /************************************************/

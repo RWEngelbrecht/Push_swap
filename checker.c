@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 11:46:43 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/12 11:00:02 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/12 12:41:34 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
 //	ft_ra(&stack_a);
 //	ft_sa(&stack_a);
 //	ft_rra(&stack_a);
-//	ft_pb(&stack_b, &stack_a);
+	ft_push_to(&stack_b, &stack_a);
 
 	ft_print_stack(&stack_a);
 	printf("\n");

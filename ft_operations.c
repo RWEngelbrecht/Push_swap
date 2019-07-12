@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:15:15 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/12 10:57:10 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/12 15:08:01 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,19 +112,16 @@ void	ft_swap_both(t_stack **a, t_stack **b)
 	ft_sb(b);
 }
 
-void	ft_push_to(t_stack **dst_b, t_stack **src_a)
+void	ft_push_to(t_stack **dst, t_stack **src)
 {
 	t_stack *p_node;
 
-	if (!(*src_a))
-	{
-		ft_putstr_fd("Error\n", 2);
+	if (!(*src))
 		return ;
-	}
 	p_node = malloc(sizeof(t_stack));
-	p_node->value = ft_pop(src_a);
-	p_node->next = *dst_b;
-	*dst_b = p_node;
+	p_node->value = ft_pop(src);
+	p_node->next = *dst;
+	*dst = p_node;
 }
 
 void	ft_rotate(t_stack **a)
@@ -143,7 +140,13 @@ void	ft_rotate(t_stack **a)
 	last->next = first;
 }
 
-void	ft_rev_rotate(t_stack **a)
+void	ft_rot_both(t_stack **a, t_stack **b)
+{
+	ft_rotate(a);
+	ft_rotate(b);
+}
+
+void	ft_rev_rot(t_stack **a)
 {
 	t_stack *scnd_last;
 	t_stack *last;
@@ -158,6 +161,12 @@ void	ft_rev_rotate(t_stack **a)
 	scnd_last->next = NULL;
 	last->next = *a;
 	*a = last;
+}
+
+void ft_rev_rot_both(t_stack **a, t_stack **b)
+{
+	ft_rev_rot(a);
+	ft_rev_rot(b);
 }
 
 /************************************************/

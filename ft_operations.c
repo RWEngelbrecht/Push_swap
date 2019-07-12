@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:15:15 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/11 14:58:33 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/12 10:57:10 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,17 +96,7 @@ int		ft_stacklen(t_stack **stack)
 /************************************************/
 /*******************OPERATIONS*******************/
 
-void	ft_sa(t_stack **a)
-{
-	t_stack *tmp;
-
-	tmp = *a;
-	*a = (*a)->next;
-	tmp->next = (*a)->next;
-	(*a)->next = tmp;
-}
-
-void	ft_sb(t_stack **b)
+void	ft_swap(t_stack **b)
 {
 	t_stack *tmp;
 
@@ -116,13 +106,13 @@ void	ft_sb(t_stack **b)
 	(*b)->next = tmp;
 }
 
-void	ft_ss(t_stack **a, t_stack **b)
+void	ft_swap_both(t_stack **a, t_stack **b)
 {
 	ft_sa(a);
 	ft_sb(b);
 }
 
-void	ft_pb(t_stack **dst_b, t_stack **src_a)
+void	ft_push_to(t_stack **dst_b, t_stack **src_a)
 {
 	t_stack *p_node;
 
@@ -137,7 +127,7 @@ void	ft_pb(t_stack **dst_b, t_stack **src_a)
 	*dst_b = p_node;
 }
 
-void	ft_ra(t_stack **a)
+void	ft_rotate(t_stack **a)
 {
 	t_stack *first;
 	t_stack *last;
@@ -153,7 +143,7 @@ void	ft_ra(t_stack **a)
 	last->next = first;
 }
 
-void	ft_rra(t_stack **a)
+void	ft_rev_rotate(t_stack **a)
 {
 	t_stack *scnd_last;
 	t_stack *last;

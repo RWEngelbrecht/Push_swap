@@ -6,13 +6,13 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/04 12:24:17 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/04 11:25:06 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/14 10:22:32 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# define BUFF_SIZE 1
+# define BUFF_SIZE 3
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>

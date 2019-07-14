@@ -34,8 +34,9 @@ void				ft_rotate(t_stack **a);
 void				ft_rot_both(t_stack **a, t_stack **b);
 void				ft_rev_rot(t_stack **a);
 void 				ft_rev_rot_both(t_stack **a, t_stack **b);
+void    			read_input(t_stack *a, t_stack *b, char **line);
 int     			check_op(char *line);
 int     			checkline(char *line);
-
+void    			do_op(char *line, t_stack **a, t_stack **b);
 
 #endif

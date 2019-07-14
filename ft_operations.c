@@ -108,8 +108,8 @@ void	ft_swap(t_stack **b)
 
 void	ft_swap_both(t_stack **a, t_stack **b)
 {
-	ft_sa(a);
-	ft_sb(b);
+	ft_swap(a);
+	ft_swap(b);
 }
 
 void	ft_push_to(t_stack **dst, t_stack **src)

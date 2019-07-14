@@ -52,25 +52,25 @@ void	insertionSort(t_stack **head)
 int main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
-	char	**line;
 	t_stack *stack_b;
+	char	**line;
 
 	if (argc < 2)
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}
-	read_input(stack_a, stack_b, line, );
-
-	// stack_a = ft_stackpopulate(argc, line);
-	insertionSort(&stack_a);
+	stack_a = ft_stackpopulate(argc, line);
+	printf("Stack A Initialized\n");
+	read_input(stack_a, stack_b, line);
+//	insertionSort(&stack_a);
 	
 //	ft_ra(&stack_a);
 //	ft_ra(&stack_a);
 //	ft_ra(&stack_a);
 //	ft_sa(&stack_a);
 //	ft_rra(&stack_a);
-	ft_push_to(&stack_b, &stack_a);
+//	ft_push_to(&stack_b, &stack_a);
 
 	ft_print_stack(&stack_a);
 	printf("\n");

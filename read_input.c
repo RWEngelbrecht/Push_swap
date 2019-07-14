@@ -12,7 +12,20 @@
 
 #include "push_swap.h"
 
-void    read_input(t_stack *a, t_stack *b, char **line, char args)
+void    read_input(t_stack *a, t_stack *b, char **line)
 {
-
+    while (get_next_line(0, line))
+    {
+        if (checkline(*line))
+        {
+            do_op(*line, &a, &b);
+            free(*line);
+        }
+        else if (!(checkline(*line)))
+        {
+            free(*line);
+            //free stack
+            ft_putstr_fd("ERROR\n", 2);
+        }
+    }
 }

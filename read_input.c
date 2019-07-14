@@ -6,20 +6,20 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 10:35:11 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/14 12:52:03 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/14 14:46:01 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+#include <stdio.h>  //REMOVE
 void    read_input(t_stack **a, t_stack **b, char **line)
 {
-    while (get_next_line(1, line))
+    while (get_next_line(0, line))
     {
         if (checkline(*line))
         {
-            ft_putendl("input accepted"); // remove later
-            do_op(*line, a, b); 
+            printf("%s input accepted\n", *line); //REMOVE
+            do_op(*line, a, b);
             free(*line);
         }
         else if (!(checkline(*line)))

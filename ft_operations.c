@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:15:15 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/12 15:08:01 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/14 11:00:55 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,10 @@ void	ft_push_to(t_stack **dst, t_stack **src)
 		return ;
 	p_node = malloc(sizeof(t_stack));
 	p_node->value = ft_pop(src);
-	p_node->next = *dst;
+	if (!(*dst))
+		p_node->next = NULL;
+	else
+		p_node->next = *dst;
 	*dst = p_node;
 }
 

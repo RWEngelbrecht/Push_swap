@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 11:46:43 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/12 12:41:34 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/14 11:51:51 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,28 +53,31 @@ int main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
 	t_stack *stack_b;
-	char	**line;
-
+	char	*line;
+//char cmds[3][3] = {"sa", "ra"};
+	line = NULL;
+//	stack_b = NULL;
 	if (argc < 2)
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}
-	stack_a = ft_stackpopulate(argc, line);
+	stack_a = ft_stackpopulate(argc, argv);
+//	stack_b = ft_stackpopulate(argc, argv);
 	printf("Stack A Initialized\n");
-	read_input(stack_a, stack_b, line);
+//ft_putendl_fd(cmds[0], 0);
+//ft_putendl_fd(cmds[1], 0);
+	read_input(&stack_a, &stack_b, &line); // not executing ft_push_to when pb command entered
 //	insertionSort(&stack_a);
 	
-//	ft_ra(&stack_a);
-//	ft_ra(&stack_a);
-//	ft_ra(&stack_a);
-//	ft_sa(&stack_a);
-//	ft_rra(&stack_a);
+//	ft_rotate(&stack_a);
+//	ft_swap(&stack_a);
+//	ft_rev_rot(&stack_a);
 //	ft_push_to(&stack_b, &stack_a);
-
+	printf("\n");
 	ft_print_stack(&stack_a);
 	printf("\n");
-//	ft_print_stack(&stack_b);
+	ft_print_stack(&stack_b);
 
 
 	

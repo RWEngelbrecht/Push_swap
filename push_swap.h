@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/12 15:07:58 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/14 11:48:56 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void				ft_rotate(t_stack **a);
 void				ft_rot_both(t_stack **a, t_stack **b);
 void				ft_rev_rot(t_stack **a);
 void 				ft_rev_rot_both(t_stack **a, t_stack **b);
-void    			read_input(t_stack *a, t_stack *b, char **line);
+void    			read_input(t_stack **a, t_stack **b, char **line);
 int     			check_op(char *line);
 int     			checkline(char *line);
 void    			do_op(char *line, t_stack **a, t_stack **b);

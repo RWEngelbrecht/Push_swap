@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/14 11:48:56 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/14 13:07:23 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,24 @@ typedef struct		s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-void				ft_push(t_stack **head, int val);
-int					ft_pop(t_stack **head);
-t_stack				*ft_stackpopulate(int argc, char **argv);
-void				ft_print_stack(t_stack **stack);
-int					ft_stacklen(t_stack **stack);
-void				ft_swap(t_stack **b);
-void				ft_swap_both(t_stack **a, t_stack **b);
-void				ft_push_to(t_stack **dst, t_stack **src);
-void				ft_rotate(t_stack **a);
-void				ft_rot_both(t_stack **a, t_stack **b);
-void				ft_rev_rot(t_stack **a);
-void 				ft_rev_rot_both(t_stack **a, t_stack **b);
+typedef struct		s_ops
+{
+	char			*op;
+	struct s_ops	*next;
+}					t_ops;
+
+void				push(t_stack **head, int val);
+int					pop(t_stack **head);
+t_stack				*stackpopulate(int argc, char **argv);
+void				print_stack(t_stack **stack);
+int					stacklen(t_stack **stack);
+void				swap(t_stack **b);
+void				swap_both(t_stack **a, t_stack **b);
+void				push_to(t_stack **dst, t_stack **src);
+void				rotate(t_stack **a);
+void				rot_both(t_stack **a, t_stack **b);
+void				rev_rot(t_stack **a);
+void 				rev_rot_both(t_stack **a, t_stack **b);
 void    			read_input(t_stack **a, t_stack **b, char **line);
 int     			check_op(char *line);
 int     			checkline(char *line);

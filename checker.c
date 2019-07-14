@@ -6,13 +6,14 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 11:46:43 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/14 11:51:51 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/14 12:51:25 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "push_swap.h"
 
+/* ************ Insertion sort experiment
 void	sortedInsert(t_stack **head, t_stack *new_head)
 {
 	t_stack *current;
@@ -48,6 +49,7 @@ void	insertionSort(t_stack **head)
 	}
 	*head = sorted;
 }
+*/
 
 int main(int argc, char *argv[])
 {
@@ -62,7 +64,12 @@ int main(int argc, char *argv[])
 		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}
-	stack_a = ft_stackpopulate(argc, argv);
+
+	/* Check argument input type i.e. ARG="1 2 3" || ARG=1 2 3 */
+	/* Validate arguments */
+	/* read output of push_swap */
+
+	stack_a = stackpopulate(argc, argv);
 //	stack_b = ft_stackpopulate(argc, argv);
 	printf("Stack A Initialized\n");
 //ft_putendl_fd(cmds[0], 0);
@@ -75,11 +82,9 @@ int main(int argc, char *argv[])
 //	ft_rev_rot(&stack_a);
 //	ft_push_to(&stack_b, &stack_a);
 	printf("\n");
-	ft_print_stack(&stack_a);
+	print_stack(&stack_a);
 	printf("\n");
-	ft_print_stack(&stack_b);
-
-
+	print_stack(&stack_b);
 	
-return (0);
+	return (0);
 }

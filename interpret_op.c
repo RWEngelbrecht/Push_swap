@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:27:12 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/14 10:43:36 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/14 12:16:09 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,25 +41,25 @@ int     checkline(char *line)
 void    do_op(char *line, t_stack **a, t_stack **b)
 {
     if (ft_strequ(line, "sa"))
-        ft_swap(a);
+        swap(a);
     else if (ft_strequ(line, "sb"))
-        ft_swap(b);
+        swap(b);
     else if (ft_strequ(line, "ss"))
-        ft_swap_both(a, b);
+        swap_both(a, b);
     else if (ft_strequ(line, "pa"))
-        ft_push_to(a, b);
+        push_to(a, b);
     else if (ft_strequ(line, "pb"))
-        ft_push_to(b, a);
+        push_to(b, a);
     else if (ft_strequ(line, "ra"))
-        ft_rotate(a);
+        rotate(a);
     else if (ft_strequ(line, "rb"))
-        ft_rotate(b);
+        rotate(b);
     else if (ft_strequ(line, "rr"))
-        ft_rot_both(a, b);
+        rot_both(a, b);
     else if (ft_strequ(line, "rra"))
-        ft_rev_rot(a);
+        rev_rot(a);
     else if (ft_strequ(line, "rrb"))
-        ft_rev_rot(b);
+        rev_rot(b);
     else if (ft_strequ(line, "rrr"))
-        ft_rev_rot_both(a, b);
+        rev_rot_both(a, b);
 }

@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:15:15 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/14 11:00:55 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/14 12:14:45 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /******      Stack creation + pushing + popping     ******/
 
-void	ft_push(t_stack **head, int val)
+void	push(t_stack **head, int val)
 {
 	t_stack	*node;
 
@@ -24,7 +24,7 @@ void	ft_push(t_stack **head, int val)
 	*head = node;
 }
 
-int		ft_pop(t_stack **head)
+int		pop(t_stack **head)
 {
 	t_stack	*next_node;
 	int		ret;
@@ -40,7 +40,7 @@ int		ft_pop(t_stack **head)
 	return (ret);
 }
 
-t_stack	*ft_stackpopulate(int argc, char **argv)
+t_stack	*stackpopulate(int argc, char **argv)
 {
 	t_stack	*stack;
 	int		i;
@@ -56,7 +56,7 @@ t_stack	*ft_stackpopulate(int argc, char **argv)
 	i--;
 	while (i >= 1)
 	{
-		ft_push(&stack, ft_atoi(argv[i]));
+		push(&stack, ft_atoi(argv[i]));
 		i--;
 	}
 	return (stack);
@@ -64,7 +64,7 @@ t_stack	*ft_stackpopulate(int argc, char **argv)
 
 /************************************************/
 
-void	ft_print_stack(t_stack **stack)
+void	print_stack(t_stack **stack)
 {
 	t_stack	*print;
 
@@ -77,7 +77,7 @@ void	ft_print_stack(t_stack **stack)
 	}
 }
 
-int		ft_stacklen(t_stack **stack)
+int		stacklen(t_stack **stack)
 {
 	t_stack	*tmp;
 	int 	len;
@@ -96,7 +96,7 @@ int		ft_stacklen(t_stack **stack)
 /************************************************/
 /*******************OPERATIONS*******************/
 
-void	ft_swap(t_stack **b)
+void	swap(t_stack **b)
 {
 	t_stack *tmp;
 
@@ -106,20 +106,20 @@ void	ft_swap(t_stack **b)
 	(*b)->next = tmp;
 }
 
-void	ft_swap_both(t_stack **a, t_stack **b)
+void	swap_both(t_stack **a, t_stack **b)
 {
-	ft_swap(a);
-	ft_swap(b);
+	swap(a);
+	swap(b);
 }
 
-void	ft_push_to(t_stack **dst, t_stack **src)
+void	push_to(t_stack **dst, t_stack **src)
 {
 	t_stack *p_node;
 
 	if (!(*src))
 		return ;
 	p_node = malloc(sizeof(t_stack));
-	p_node->value = ft_pop(src);
+	p_node->value = pop(src);
 	if (!(*dst))
 		p_node->next = NULL;
 	else
@@ -127,7 +127,7 @@ void	ft_push_to(t_stack **dst, t_stack **src)
 	*dst = p_node;
 }
 
-void	ft_rotate(t_stack **a)
+void	rotate(t_stack **a)
 {
 	t_stack *first;
 	t_stack *last;
@@ -143,13 +143,13 @@ void	ft_rotate(t_stack **a)
 	last->next = first;
 }
 
-void	ft_rot_both(t_stack **a, t_stack **b)
+void	rot_both(t_stack **a, t_stack **b)
 {
-	ft_rotate(a);
-	ft_rotate(b);
+	rotate(a);
+	rotate(b);
 }
 
-void	ft_rev_rot(t_stack **a)
+void	rev_rot(t_stack **a)
 {
 	t_stack *scnd_last;
 	t_stack *last;
@@ -166,10 +166,10 @@ void	ft_rev_rot(t_stack **a)
 	*a = last;
 }
 
-void ft_rev_rot_both(t_stack **a, t_stack **b)
+void rev_rot_both(t_stack **a, t_stack **b)
 {
-	ft_rev_rot(a);
-	ft_rev_rot(b);
+	rev_rot(a);
+	rev_rot(b);
 }
 
 /************************************************/

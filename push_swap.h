@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/14 13:07:23 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/15 13:26:51 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void 				rev_rot_both(t_stack **a, t_stack **b);
 void    			read_input(t_stack **a, t_stack **b, char **line);
 int     			check_op(char *line);
 int     			checkline(char *line);
+int     			is_sorted(t_stack *a);
 void    			do_op(char *line, t_stack **a, t_stack **b);
+int     			input_valid(int ac, char **av);
 
 #endif

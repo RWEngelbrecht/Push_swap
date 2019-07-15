@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:15:15 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/14 12:14:45 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/15 15:50:27 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,28 @@ int		pop(t_stack **head)
 t_stack	*stackpopulate(int argc, char **argv)
 {
 	t_stack	*stack;
+	char	**args;
 	int		i;
 
 	if (!(stack = malloc(sizeof(t_stack))))
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (0);
+	}
+	if (argc == 2)
+	{
+		// args = (char**)malloc(sizeof(char*) * (ft_wordcount(*argv, ' ')));
+		args = ft_strsplit(*argv, ' ');
+		i = ft_wordcount(*argv, ' ');
+		stack->value = ft_atoi(args[i]);
+		stack->next = NULL;
+		i--;
+		while (i >= 1)
+		{
+			push(&stack, ft_atoi(args[i]));
+			i--;
+		}
+		return (stack);
 	}
 	i = argc - 1;
 	stack->value = ft_atoi(argv[i]);

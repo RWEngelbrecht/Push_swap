@@ -6,12 +6,12 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 11:46:43 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/16 11:18:39 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/16 12:38:34 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "push_swap.h"
+#include <stdio.h>
 
 /* ************ Insertion sort experiment
 void	sortedInsert(t_stack **head, t_stack *new_head)
@@ -84,12 +84,11 @@ int main(int argc, char *argv[])
 	}
 	else
 		ft_putstr_fd("KO\n", 1);
-	 
 //	insertionSort(&stack_a);
-	printf("\n STACK A:\n");
-	print_stack(&stack_a);
-	printf("\n STACK B:\n");
-	print_stack(&stack_b);
+	 printf("\n STACK A:\n");
+	 print_stack(&stack_a);
+	 printf("\n STACK B:\n");
+	 print_stack(&stack_b);
 	
 	return (0);
 }

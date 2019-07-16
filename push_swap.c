@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 09:37:03 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/16 08:55:35 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/16 14:03:05 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main (int argc, char *argv[])
     t_stack	*stack_a;
 	t_stack *stack_b;
 
-    char ops[4][4] = {"rra", "ra", "pb"};
+    char ops[4][4] = {"rra", "sa", "pb"};
 
     stack_b = NULL;
 //    cmds = malloc(sizeof(t_ops) * 4);
@@ -29,6 +29,7 @@ int main (int argc, char *argv[])
     if (input_valid(argc, argv))
     {
         stack_a = stackpopulate(argc, argv);
+		ft_putendl_fd(ops[1], 1);
         ft_putendl_fd(ops[0], 1);
     }
 //    ft_putendl_fd(ops[1], 1);

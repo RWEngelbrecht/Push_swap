@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 12:27:56 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/16 11:59:14 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/16 15:40:11 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int     input_valid(int ac, char **av)
         {
             while (ft_isdigit(av[i][j]) || ft_iswhitespace(av[i][j]))
             {
-                while (ft_iswhitespace(av[i][j]))
+                while (ft_iswhitespace(av[i][j]) || av[i][j] == '-')
                     j++;
                 if (!(ft_isdigit(av[i][j])))
                     return (0);
@@ -42,7 +42,7 @@ int     input_valid(int ac, char **av)
     }
     else if (ac > 2)
     {
-        while (ft_isdigit(av[i][j]))
+        while (av[i] != '\0')
         {
             j = 0;
             while (ft_isdigit(av[i][j]) && av[i][j] != '\0')

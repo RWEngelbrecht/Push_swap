@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:15:15 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/16 10:45:03 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/16 12:32:40 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_stack	*stackpopulate(int argc, char **argv)
 		stack->value = ft_atoi(args[i]);
 		stack->next = NULL;
 		i--;
-		while (args[i])
+		while (i >= 0)
 		{
 			push(&stack, ft_atoi(args[i]));
 			i--;

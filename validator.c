@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 12:27:56 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/16 11:13:21 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/16 11:59:14 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,11 @@ int     input_valid(int ac, char **av)
             j = 0;
             while (ft_isdigit(av[i][j]) && av[i][j] != '\0')
             {
-                j++;
+                if (av[i][j] == '\0')
+                    break ;
                 if (!(ft_isdigit(av[i][j])))
                     return (0);
+                j++;
             }
             i++;
         }

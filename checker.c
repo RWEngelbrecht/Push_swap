@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 11:46:43 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/15 14:18:16 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/16 11:18:39 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 	t_stack	*stack_a;
 	t_stack *stack_b;
 	char	*line;
-//char cmds[3][3] = {"sa", "ra"};
+
 	stack_a = NULL;
 	line = NULL;
 	stack_b = NULL;
@@ -65,14 +65,16 @@ int main(int argc, char *argv[])
 		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}
-	/* Check argument input type i.e. ARG="1 2 3" || ARG=1 2 3 */
 	/* Validate arguments */
-	/* read output of push_swap */ //FIGURED THIS OUT
-	//	stack_b = ft_stackpopulate(argc, argv);
 	if (input_valid(argc, argv))
 	{
 		stack_a = stackpopulate(argc, argv);
 		read_input(&stack_a, &stack_b, &line);
+	}
+	else
+	{
+		ft_putstr_fd("Error\n", 2);
+		return (0);
 	}
 	if (is_sorted(stack_a) && !stack_b)
 	{
@@ -84,14 +86,9 @@ int main(int argc, char *argv[])
 		ft_putstr_fd("KO\n", 1);
 	 
 //	insertionSort(&stack_a);
-	
-//	ft_rotate(&stack_a);
-//	ft_swap(&stack_a);
-//	ft_rev_rot(&stack_a);
-//	ft_push_to(&stack_b, &stack_a);
-	printf("\n");
+	printf("\n STACK A:\n");
 	print_stack(&stack_a);
-	printf("\n");
+	printf("\n STACK B:\n");
 	print_stack(&stack_b);
 	
 	return (0);

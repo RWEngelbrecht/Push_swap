@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/15 13:26:51 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/18 16:10:51 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,6 @@ typedef struct		s_stack
 	int				value;
 	struct s_stack	*next;
 }					t_stack;
-
-typedef struct		s_ops
-{
-	char			*op;
-	struct s_ops	*next;
-}					t_ops;
 
 void				push(t_stack **head, int val);
 int					pop(t_stack **head);
@@ -46,5 +40,7 @@ int     			checkline(char *line);
 int     			is_sorted(t_stack *a);
 void    			do_op(char *line, t_stack **a, t_stack **b);
 int     			input_valid(int ac, char **av);
+int     			only_digits(char *str);
+int     			dup_check(int ac, char **av);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:15:15 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/16 12:32:40 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/22 09:09:51 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	print_stack(t_stack **stack)
 int		stacklen(t_stack **stack)
 {
 	t_stack	*tmp;
-	int 	len;
+	int		len;
 
 	len = 0;
 	tmp = *stack;
@@ -106,7 +106,6 @@ int		stacklen(t_stack **stack)
 		len++;
 		tmp = tmp->next;
 	}
-	free(tmp);
 	return (len);
 }
 

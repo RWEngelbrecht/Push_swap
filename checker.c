@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 11:46:43 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/18 12:18:51 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/22 09:26:24 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ int main(int argc, char *argv[])
 	if (argc < 2)
 	{
 		ft_putstr_fd("Error\n", 2);
-		return (0);
+		return (2);
 	}
-	/* Validate arguments */
 	if ((input_valid(argc, argv)))
 	{
 		stack_a = stackpopulate(argc, argv);
-		read_input(&stack_a, &stack_b, &line);
+		if (!read_input(&stack_a, &stack_b, &line))
+			return (0);
 	}
 	else
 	{

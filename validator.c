@@ -6,13 +6,13 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 12:27:56 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/22 11:26:40 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/22 12:42:31 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int     only_digits(char *str)
+int		only_digits(char *str)
 {
 	while (*str)
 	{
@@ -23,11 +23,11 @@ int     only_digits(char *str)
 	return (1);
 }
 
-int     dup_check(int ac, char **av)
+int		dup_check(int ac, char **av)
 {
-	char **str;
-	int i;
-	int j;
+	char	**str;
+	int		i;
+	int		j;
 
 	i = 1;
 	str = NULL;
@@ -52,12 +52,12 @@ int     dup_check(int ac, char **av)
 	return (1);
 }
 
-int     input_valid(int ac, char **av)
+int		input_valid(int ac, char **av)
 {
 	if (ac == 2)
 	{
-		char **arr;
-		int i;
+		char	**arr;
+		int		i;
 
 		arr = ft_strsplit(av[1], ' ');
 		i = 0;
@@ -74,7 +74,7 @@ int     input_valid(int ac, char **av)
 	}
 	else if (ac > 2)
 	{
-		int     i;
+		int		i;
 
 		i = 1;
 		while (av[i])
@@ -93,7 +93,7 @@ int     input_valid(int ac, char **av)
 
 int		is_sorted(t_stack *a)
 {
-	int temp;
+	int		temp;
 
 	if (!a)
 		return (0);

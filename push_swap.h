@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/22 09:25:13 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/22 14:34:36 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 typedef struct		s_stack
 {
 	int				value;
-	int				*a;
 	struct s_stack	*next;
 }					t_stack;
 

@@ -6,12 +6,12 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 11:46:43 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/22 09:26:24 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/22 14:38:18 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
+#include <stdio.h>		//REMOVE
 
 int main(int argc, char *argv[])
 {
@@ -31,7 +31,10 @@ int main(int argc, char *argv[])
 	{
 		stack_a = stackpopulate(argc, argv);
 		if (!read_input(&stack_a, &stack_b, &line))
+		{
+			ft_putstr_fd("Error\n", 2);
 			return (0);
+		}
 	}
 	else
 	{
@@ -46,11 +49,10 @@ int main(int argc, char *argv[])
 	}
 	else
 		ft_putstr_fd("KO\n", 1);
-//	insertionSort(&stack_a);
-	 printf("\n STACK A:\n");
-	 print_stack(&stack_a);
-	 printf("\n STACK B:\n");
-	 print_stack(&stack_b);
+	 printf("\n STACK A:\n");	//REMOVE
+	 print_stack(&stack_a);		//REMOVE
+	 printf("\n STACK B:\n");	//REMOVE
+	 print_stack(&stack_b);		//REMOVE
 	
 	return (0);
 }

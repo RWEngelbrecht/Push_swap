@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/18 16:10:51 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/22 09:25:13 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 typedef struct		s_stack
 {
 	int				value;
+	int				*a;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -34,7 +35,7 @@ void				rotate(t_stack **a);
 void				rot_both(t_stack **a, t_stack **b);
 void				rev_rot(t_stack **a);
 void 				rev_rot_both(t_stack **a, t_stack **b);
-void    			read_input(t_stack **a, t_stack **b, char **line);
+int	    			read_input(t_stack **a, t_stack **b, char **line);
 int     			check_op(char *line);
 int     			checkline(char *line);
 int     			is_sorted(t_stack *a);

@@ -6,41 +6,42 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:35:18 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/25 13:03:23 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/25 16:00:22 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	push(t_stack **head, int val)
+void	push(t_stack **stack, int val)
 {
 	t_stack	*node;
 
 	node = malloc(sizeof(t_stack));
 	node->value = val;
-	node->next = *head;
-	*head = node;
+	node->next = *stack;
+	*stack = node;
 }
 
-int		pop(t_stack **head)
+int		pop(t_stack **stack)
 {
 	t_stack	*next_node;
 	int		ret;
 
-	if (*head == NULL)
+	if (*stack == NULL)
 		return (-1);
 	next_node = NULL;
 	ret = -1;
-	next_node = (*head)->next;
-	ret = (*head)->value;
-	free(*head);
-	*head = next_node;
+	next_node = (*stack)->next;
+	ret = (*stack)->value;
+	free(*stack);
+	*stack = next_node;
 	return (ret);
 }
 
-t_stack		*str_stackpopulate(t_stack *stack, char **argv, char **args)
+t_stack		*str_stackpopulate(t_stack *stack, char **argv)
 {
 	int		i;
+	char	**args;
 
 	stack = malloc(sizeof(t_stack));
 	args = ft_strsplit(argv[1], ' ');
@@ -59,10 +60,9 @@ t_stack		*str_stackpopulate(t_stack *stack, char **argv, char **args)
 t_stack		*stackpopulate(int argc, char **argv)
 {
 	t_stack	*stack;
-	char	**args;
+
 	int		i;
 
-	args = NULL;
 	if (!(stack = malloc(sizeof(t_stack))))
 	{
 		ft_putstr_fd("Error\n", 2);
@@ -70,7 +70,7 @@ t_stack		*stackpopulate(int argc, char **argv)
 	}
 	if (argc == 2)
 	{
-		stack = str_stackpopulate(stack, argv, args);
+		stack = str_stackpopulate(stack, argv);
 		return (stack);
 	}
 	i = argc - 1;

@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 12:42:41 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/25 14:13:57 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/25 15:28:46 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	print_stack(t_stack **stack)
 	}
 }
 
-int		stacklen(t_stack **stack)
+int		stack_len(t_stack **stack)
 {
 	t_stack	*tmp;
 	int		len;
@@ -49,8 +49,11 @@ int		find_median(t_stack **stack)
 	tmp = *stack;
 	i = 0;
 	res = 0;
-	while (i < stacklen(tmp))
+	while (i < (stack_len(&tmp) / 2))
 	{
-		
+		tmp = tmp->next;
+		i++;
 	}
+	res = tmp->value;
+	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 09:37:03 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/25 13:04:41 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/25 16:08:40 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,22 +49,39 @@ void	insertionSort(t_stack **head)
 	*head = sorted;
 }*/
 
-// char *do_sort(t_stack *a, t_stack *b)
-// {
-// 	int temp;
+void	do_sort(t_stack **a, t_stack **b)
+{
+	t_stack	*tempa;
+	t_stack	*tempb;
+	int		stacklen;
+	int		med;
 
-// 	temp = 0;
-// 	while (*a)
-// 	{
-// 	}
-// }
+	tempa = *a;
+	tempb = *b;
+	stacklen = stack_len(&tempa);
+	med = find_median(&tempa);
+	while (stacklen)
+	{
+		if (tempa->value <= med)
+		{
+			ft_putendl_fd("pb", 1);
+			pop(&tempa);
+		}
+		else
+		{
+			ft_putendl_fd("ra", 1);
+			rotate(&tempa);
+		}
+		stacklen--;
+	}
+}
 
 int main (int argc, char *argv[])
 {
 	t_stack	*stack_a;
 	t_stack *stack_b;
 
-	char ops[4][4] = {"rra", "ra", "ps"};
+//	char ops[4][4] = {"rra", "ra", "ps"};
 
 	stack_b = NULL;
 	if (argc < 2)
@@ -75,8 +92,7 @@ int main (int argc, char *argv[])
 	if (input_valid(argc, argv))
 	{
 		stack_a = stackpopulate(argc, argv);
-		ft_putendl_fd(ops[1], 1);
-		ft_putendl_fd(ops[1], 1);
+		do_sort(&stack_a, &stack_b);
 	}
 	// else
 	// {

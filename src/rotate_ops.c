@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:15:15 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/25 11:05:06 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/25 15:51:12 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	rotate(t_stack **a)
 {
-	t_stack *first;
-	t_stack *last;
+	t_stack	*first;
+	t_stack	*last;
 
 	first = *a;
 	last = *a;
@@ -36,8 +36,8 @@ void	rot_both(t_stack **a, t_stack **b)
 
 void	rev_rot(t_stack **a)
 {
-	t_stack *scnd_last;
-	t_stack *last;
+	t_stack	*scnd_last;
+	t_stack	*last;
 
 	scnd_last = NULL;
 	last = *a;

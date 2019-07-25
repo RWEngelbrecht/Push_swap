@@ -6,7 +6,7 @@
 #    By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/16 07:49:21 by rengelbr          #+#    #+#              #
-#    Updated: 2019/07/16 10:40:48 by rengelbr         ###   ########.fr        #
+#    Updated: 2019/07/25 11:02:42 by rengelbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,24 @@ CNME = checker
 FLGS = -Wall -Werror -Wextra
 DBFLG = -Wall -Werror -Wextra -g
 CSRC = checker.c \
-		ft_operations.c \
-		read_input.c \
-		interpret_op.c \
-		validator.c \
-		$(LIB)
+		$(LIB) \
+		src/*.c
+		# stack_functions.c \
+		# push_to.c \
+		# swap_ops.c \
+		# rotate_ops.c \
+		# read_input.c \
+		# interpret_op.c \
+		# validator.c \
+		# sub_validator.c 
+		
 PSRC = push_swap.c \
-		validator.c \
-		ft_operations.c \
-		$(LIB)
+		$(LIB) \
+		src/*.c
+		# validator.c \
+		# sub_validator.c \
+		# stack_functions.c
+		
 
 all: $(CNME) $(PNME)
 	

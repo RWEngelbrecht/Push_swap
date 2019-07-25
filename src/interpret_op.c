@@ -6,11 +6,11 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:27:12 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/22 12:41:01 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/25 11:04:52 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int		check_op(char *line)
 {

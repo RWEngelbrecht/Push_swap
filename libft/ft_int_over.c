@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 10:36:14 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/22 10:54:29 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/25 13:14:27 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int		ft_int_over(const char *str)
 		str++;
 	if (*str == '-' || *str == '+')
 	{
-		if (*str == '-')
-			neg = -1;
+		(*str == '-') ? (neg = -1) : 1;
 		str++;
 	}
 	while (*str && (*str >= '0' && *str <= '9'))

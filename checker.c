@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 11:46:43 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/22 14:38:18 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/25 14:03:55 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,5 @@ int main(int argc, char *argv[])
 	 print_stack(&stack_a);		//REMOVE
 	 printf("\n STACK B:\n");	//REMOVE
 	 print_stack(&stack_b);		//REMOVE
-	
 	return (0);
 }

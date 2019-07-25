@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_input.c                                       :+:      :+:    :+:   */
+/*   swap_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/12 10:35:11 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/22 14:50:01 by rengelbr         ###   ########.fr       */
+/*   Created: 2019/07/25 10:38:39 by rengelbr          #+#    #+#             */
+/*   Updated: 2019/07/25 11:05:20 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int		read_input(t_stack **a, t_stack **b, char **line)
+void	swap(t_stack **b)
 {
-	while (get_next_line(0, line))
-	{
-		if (checkline(*line))
-		{
-			do_op(*line, a, b);
-			free(*line);
-		}
-		else if (!(checkline(*line)))
-		{
-			free(*line);
-			//free stack
-			return (0);
-		}
-	}
-	return (1);
+	t_stack *tmp;
+
+	tmp = *b;
+	*b = (*b)->next;
+	tmp->next = (*b)->next;
+	(*b)->next = tmp;
+}
+
+void	swap_both(t_stack **a, t_stack **b)
+{
+	swap(a);
+	swap(b);
 }

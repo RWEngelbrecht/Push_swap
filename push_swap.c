@@ -6,15 +6,16 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 09:37:03 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/22 14:53:34 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/25 13:04:41 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-/*
+/* 
 void	sortedInsert(t_stack **head, t_stack *new_head)
 {
 	t_stack *current;
+
 	if (*head == NULL || (*head)->value >= new_head->value)
 	{
 		new_head->next = *head;
@@ -46,14 +47,24 @@ void	insertionSort(t_stack **head)
 		current = next;
 	}
 	*head = sorted;
-}
-*/
+}*/
+
+// char *do_sort(t_stack *a, t_stack *b)
+// {
+// 	int temp;
+
+// 	temp = 0;
+// 	while (*a)
+// 	{
+// 	}
+// }
+
 int main (int argc, char *argv[])
 {
 	t_stack	*stack_a;
 	t_stack *stack_b;
 
-	char ops[4][4] = {"rra", "pa", "pa"};
+	char ops[4][4] = {"rra", "ra", "ps"};
 
 	stack_b = NULL;
 	if (argc < 2)
@@ -64,8 +75,8 @@ int main (int argc, char *argv[])
 	if (input_valid(argc, argv))
 	{
 		stack_a = stackpopulate(argc, argv);
-		ft_putendl_fd(ops[2], 1);
-		ft_putendl_fd(ops[2], 1);
+		ft_putendl_fd(ops[1], 1);
+		ft_putendl_fd(ops[1], 1);
 	}
 	// else
 	// {

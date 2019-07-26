@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 12:42:41 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/25 15:28:46 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/26 11:01:21 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	print_stack(t_stack **stack)
 	}
 }
 
-int		stack_len(t_stack **stack)
+int		stack_len(t_stack **stack)   //MAKE LIBFT FUNCT CALLED FT_LSTLEN ??
 {
 	t_stack	*tmp;
 	int		len;
@@ -40,20 +40,23 @@ int		stack_len(t_stack **stack)
 	return (len);
 }
 
-int		find_median(t_stack **stack)
+int		find_avg(t_stack **stack)
 {
 	t_stack	*tmp;
+	int		len;
 	int		i;
 	int		res;
 
 	tmp = *stack;
+	len = stack_len(&tmp);
 	i = 0;
 	res = 0;
-	while (i < (stack_len(&tmp) / 2))
+	while (i < len)
 	{
+		res += tmp->value;
 		tmp = tmp->next;
 		i++;
 	}
-	res = tmp->value;
+	res /= len;
 	return (res);
 }

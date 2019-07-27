@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/26 15:25:55 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/27 14:27:08 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,15 @@ int					check_op(char *line);
 int					checkline(char *line);
 int					is_sorted(t_stack *a);
 void				do_op(char *line, t_stack **a, t_stack **b);
+void				print_do_op(char *op, t_stack **a, t_stack **b);
 int					input_valid(int ac, char **av);
 int					only_digits(char *str);
 int					dup_check(int ac, char **av);
 int					input_valid_string(int ac, char **av);
 int					input_valid_ints(int ac, char **av);
 int					find_avg(t_stack **stack);
-void				do_sort_three(t_stack **a);
-void				quicksort(int len, t_stack **a);
+void				do_sort_three(t_stack **a, t_stack **b);
+void				do_sort_five(t_stack **a, t_stack **b);
+void				quicksort(int len, t_stack **a,t_stack **b_temp);
 
 #endif

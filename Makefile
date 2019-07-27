@@ -6,7 +6,7 @@
 #    By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/16 07:49:21 by rengelbr          #+#    #+#              #
-#    Updated: 2019/07/26 08:58:32 by rengelbr         ###   ########.fr        #
+#    Updated: 2019/07/27 12:19:00 by rengelbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ $(PNME):
 	gcc $(FLGS) $(PSRC) -o $(PNME)
 
 db:
+	$(MAKE) $(MAKELIB)
 	gcc $(DBFLG) $(CSRC) -o $(CNME)
 	gcc $(DBFLG) $(PSRC) -o $(PNME)
 

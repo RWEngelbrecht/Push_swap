@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:13:34 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/26 15:18:38 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/27 14:54:29 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,65 +48,34 @@ void	insertionSort(t_stack **head)
 		current = next;
 	}
 	*head = sorted;
-}*/
-
-void	do_sort_three(t_stack **a)
-{
-	if ((*a)->value > (*a)->next->value &&
-		(*a)->value < (*a)->next->next->value)
-		ft_putendl_fd("sa", 1);
-	else if ((*a)->value > (*a)->next->value &&
-				(*a)->next->value >
-					(*a)->next->next->value)
-	{
-		ft_putendl_fd("sa", 1);
-		ft_putendl_fd("rra", 1);
-	}
-	else if ((*a)->value > (*a)->next->value &&
-				(*a)->next->value <
-						(*a)->next->next->value)
-		ft_putendl_fd("ra", 1);
-	else if ((*a)->value < (*a)->next->value &&
-				(*a)->value <
-						(*a)->next->next->value)
-	{
-		ft_putendl_fd("sa", 1);
-		ft_putendl_fd("ra", 1);
-	}
-	else if ((*a)->value < (*a)->next->value &&
-				(*a)->value >
-						(*a)->next->next->value)
-	{
-		ft_putendl_fd("rra", 1);
-	}
 }
-
-void	quicksort(int len, t_stack **a)
+*//* 
+void	quicksort(int len, t_stack **a,t_stack **b_temp)
 {
-	t_stack *b_temp;
+//	t_stack *b_temp;
 	int top_half_len;
-	int half_len;
+//	int half_len;
 	int avg;
 	int i;
 	int j;
 
-	b_temp = NULL;
+//	b_temp = NULL;
 	top_half_len = 0;
 	avg = find_avg(a);
-	i = len;
+	i = 0;
 	if (len == 1)
 		return ;
-	while (i > 0)
+	while (i < len)
 	{
-		if ((*a)->value > avg)
+		if ((*a)->value >= avg)
 		{
 			ft_putendl_fd("pb", 1);
-			push_to(&b_temp, a);
+			push_to(b_temp, a);
 			top_half_len++;
-			i--;
 		}
 		ft_putendl_fd("ra", 1);
 		rotate(a);
+		i++;
 	}
 	j = len - top_half_len;
 	while (j)
@@ -114,7 +83,7 @@ void	quicksort(int len, t_stack **a)
 		ft_putendl_fd("rra", 1);
 		rev_rot(a);
 		j--;
-	}
+	}*//*
 	half_len = top_half_len;
 	while (half_len)
 	{
@@ -122,10 +91,7 @@ void	quicksort(int len, t_stack **a)
 		push_to(a, &b_temp);
 		half_len--;
 	}
-	//if (stack_len(a) > stack_len(&b_temp))
-		quicksort(top_half_len, a);
-	//else
-	//	quicksort(top_half_len, &b_temp);
+	quicksort(top_half_len, &b_temp);
 	half_len = top_half_len;
 	while (half_len)
 	{
@@ -134,15 +100,67 @@ void	quicksort(int len, t_stack **a)
 		half_len--;
 	}
 	j = len - top_half_len;
-	//if (stack_len(a) < stack_len(&b_temp))
-		quicksort(j, a);
-	//else
-	//	quicksort(j, &b_temp);
+	quicksort(j, a);
 	half_len = top_half_len;
 	while (half_len)
 	{
 		ft_putendl_fd("rra", 1);
 		rev_rot(a);
 		half_len--;
+	}
+}
+*/
+
+void	do_sort_three(t_stack **a, t_stack **b)
+{
+	if ((*a)->value > (*a)->next->value &&
+		(*a)->value < (*a)->next->next->value)
+		print_do_op("sa", a, b);
+	else if ((*a)->value > (*a)->next->value &&
+				(*a)->next->value >
+					(*a)->next->next->value)
+	{
+		print_do_op("sa", a, b);
+		print_do_op("rra", a, b);
+	}
+	else if ((*a)->value > (*a)->next->value &&
+				(*a)->next->value <
+						(*a)->next->next->value)
+		print_do_op("ra", a, b);
+	else if ((*a)->value < (*a)->next->value &&
+				(*a)->value <
+						(*a)->next->next->value)
+	{
+		print_do_op("sa", a, b);
+		print_do_op("ra", a, b);
+	}
+	else if ((*a)->value < (*a)->next->value &&
+				(*a)->value >
+						(*a)->next->next->value)
+		print_do_op("rra", a, b);
+}
+#include <stdio.h>
+void	do_sort_five(t_stack **a, t_stack **b)
+{
+	print_do_op("pb", a, b);
+	print_do_op("pb", a, b);
+	if (!is_sorted(*a))
+		do_sort_three(a, b);
+	while (*b != NULL)
+	{
+		//printf("b = %i\n(*a) = %i\n", b->value, (*a)->value);
+		if ((*b)->value < (*a)->value)
+		{
+			print_do_op("pa", a, b);
+		}
+		else if ((*b)->value > (*a)->value)
+		{
+			print_do_op("pa", a, b);
+			if ((*a)->value < (*a)->next->next->value)
+				print_do_op("sa", a, b);
+			else if ((*a)->value >
+						(*a)->next->next->next->next->value)
+				print_do_op("ra", a, b);
+		}
 	}
 }

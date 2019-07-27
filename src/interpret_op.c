@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:27:12 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/25 11:04:52 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/07/27 14:21:38 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,10 @@ void	do_op(char *line, t_stack **a, t_stack **b)
 		rev_rot(b);
 	else if (ft_strequ(line, "rrr"))
 		rev_rot_both(a, b);
+}
+
+void	print_do_op(char *op, t_stack **a, t_stack **b)
+{
+	ft_putendl_fd(op, 1);
+	do_op(op, a, b);
 }

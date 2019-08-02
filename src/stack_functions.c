@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:35:18 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/02 09:50:46 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/02 13:48:08 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ t_stack		*str_stackpopulate(t_stack *stack, char **argv)
 	char	**args;
 
 	stack = malloc(sizeof(t_stack));
-	args = ft_strsplit(argv[1], ' ');
 	i = ft_wordcount(argv[1], ' ') - 1;
+	args = ft_strsplit(argv[1], ' ');
 	stack_new(&stack, ft_atoi(args[i]));
 	i--;
 	while (i >= 0)
@@ -81,10 +81,7 @@ t_stack		*stackpopulate(int argc, char **argv)
 	i = argc - 1;
 	stack_new(&stack, ft_atoi(argv[i--]));
 	while (i >= 1)
-	{
-		push(&stack, ft_atoi(argv[i]));
-		i--;
-	}
+		push(&stack, ft_atoi(argv[i--]));
 	stack = normalize(&stack);
 	return (stack);
 }

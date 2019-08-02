@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:13:34 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/02 09:48:56 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/02 13:21:25 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,20 +49,22 @@ void	insertionSort(t_stack **head)
 	}
 	*head = sorted;
 }
-*/ /*
-void	quicksort(int len, t_stack **a,t_stack **b_temp)
+*/ /* 
+#include <stdio.h>
+void	quicksort(int len, t_stack **a,t_stack **b)
 {
 	int half_len;
 	int avg;
 	int i;
-	int j;
+//	int j;
 
 	half_len = len / 2;
+	avg = find_avg(a);
+	printf("%i\n", avg);
 	i = 0;
 	if (len == 1)
 		return ;
-//	normalize(a);
-	while (i < half_len)
+	while (i < len)
 	{
 		if ((*a)->value <= avg)
 		{
@@ -71,38 +73,11 @@ void	quicksort(int len, t_stack **a,t_stack **b_temp)
 		print_do_op("ra", a, b);
 		i++;
 	}
-	j = 0;
-	while (j < half_len)
+	while (*b)
 	{
-		  
-		j++;
+		
 	}
-	half_len = top_half_len;
-	while (half_len)
-	{
-		ft_putendl_fd("pa", 1);
-		push_to(a, &b_temp);
-		half_len--;
-	}
-	quicksort(top_half_len, &b_temp);
-	half_len = top_half_len;
-	while (half_len)
-	{
-		ft_putendl_fd("ra", 1);
-		rotate(a);
-		half_len--;
-	}
-	j = len - top_half_len;
-	quicksort(j, a);
-	half_len = top_half_len;
-	while (half_len)
-	{
-		ft_putendl_fd("rra", 1);
-		rev_rot(a);
-		half_len--;
-	}
-}
-*/
+}*/
 
 t_stack		*normalize(t_stack **stack)
 {
@@ -132,14 +107,11 @@ t_stack		*normalize(t_stack **stack)
 	ret = malloc(sizeof(t_stack));
 	stack_new(&ret, order[i--]);
 	while (i >= 0)
-	{
-		push(&ret, order[i]);
-		i--;
-	}
+		push(&ret, order[i--]);
 	return (ret);
 }
 
-void	do_sort_three(t_stack **a, t_stack **b, int *order)
+void	do_sort_three(t_stack **a, t_stack **b)
 {
 	int i;
 
@@ -165,37 +137,7 @@ void	do_sort_three(t_stack **a, t_stack **b, int *order)
 				order[i] > order[i + 2])
 		print_do_op("rra", a, b);
 }
-
 /*
-void	do_sort_three(t_stack **a, t_stack **b)
-{
-	if ((*a)->value > (*a)->next->value &&
-		(*a)->value < (*a)->next->next->value)
-		print_do_op("sa", a, b);
-	else if ((*a)->value > (*a)->next->value &&
-				(*a)->next->value >
-					(*a)->next->next->value)
-	{
-		print_do_op("sa", a, b);
-		print_do_op("rra", a, b);
-	}
-	else if ((*a)->value > (*a)->next->value &&
-				(*a)->next->value <
-						(*a)->next->next->value)
-		print_do_op("ra", a, b);
-	else if ((*a)->value < (*a)->next->value &&
-				(*a)->value <
-						(*a)->next->next->value)
-	{
-		print_do_op("sa", a, b);
-		print_do_op("ra", a, b);
-	}
-	else if ((*a)->value < (*a)->next->value &&
-				(*a)->value >
-						(*a)->next->next->value)
-		print_do_op("rra", a, b);
-}
-*//*
 void	do_sort_five(t_stack **a, t_stack **b, int *order)
 {
 	int i;
@@ -243,8 +185,8 @@ void	do_sort_five(t_stack **a, t_stack **b, int *order)
 		}
 	}
 	do_sort_three(a, b, &(order[2]));
-}*/
-/*
+}
+*/
 //DOESN'T ACCOUNT FOR STACK LEN CHANGES 
 void	do_sort_five(t_stack **a, t_stack **b) 
 {
@@ -264,13 +206,15 @@ void	do_sort_five(t_stack **a, t_stack **b)
 			print_do_op("sa", a, b);
 		}
 		else if ((*b)->value >
-					(*a)->next->next->next->value)
+					(*a)->next->next->next->value ||
+						(*b)->value > (*a)->next->next->value)
 		{
 			print_do_op("pa", a, b);
 			print_do_op("ra", a, b);
 		}
 		else if ((*b)->value > (*a)->next->value &&
-					(*b)->value < (*a)->next->next->next->value)
+					((*b)->value < (*a)->next->next->next->value ||
+						(*b)->value < (*a)->next->next->value))
 		{
 			print_do_op("pa", a, b);
 			print_do_op("rra", a, b);
@@ -279,4 +223,4 @@ void	do_sort_five(t_stack **a, t_stack **b)
 			print_do_op("ra", a, b);
 		}
 	}
-}*/
+}

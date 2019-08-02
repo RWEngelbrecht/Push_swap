@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:13:34 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/02 13:21:25 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/02 17:04:35 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,31 +111,33 @@ t_stack		*normalize(t_stack **stack)
 	return (ret);
 }
 
-void	do_sort_three(t_stack **a, t_stack **b)
+#include <stdio.h>
+void	do_sort_three(t_stack **stack_a, t_stack **stack_b)
 {
-	int i;
+	int a;
+	int b;
+	int c;
 
-	i = 0;
-	if (order[i] > order[i + 1] && order[i] < order[i + 2])
-		print_do_op("sa", a, b);
-	else if (order[i] > order[i + 1] &&
-				order[i + 1] > order[i + 2])
+	a = (*stack_a)->value;
+	b = (*stack_a)->next->value;
+	c = (*stack_a)->next->next->value;
+	printf("a%i b%i c%i\n", a, b, c);
+	if (a > b && a < c)
+		print_do_op("sa", stack_a, stack_b);
+	else if (a > b && b > c)
 	{
-		print_do_op("sa", a, b);
-		print_do_op("rra", a, b);
+		print_do_op("sa", stack_a, stack_b);
+		print_do_op("rra", stack_a, stack_b);
 	}
-	else if (order[i] > order[i + 1] &&
-				order[i + 1] < order[i + 2])
-		print_do_op("ra", a, b);
-	else if (order[i] < order[i + 1] &&
-				order[i] < order[i + 2])
+	else if (a > b && b < c)
+		print_do_op("ra", stack_a, stack_b);
+	else if (a < b && a < c && b > c)
 	{
-		print_do_op("sa", a, b);
-		print_do_op("ra", a, b);
+		print_do_op("sa", stack_a, stack_b);
+		print_do_op("ra", stack_a, stack_b);
 	}
-	else if (order[i] < order[i + 1] &&
-				order[i] > order[i + 2])
-		print_do_op("rra", a, b);
+	else if (a < b && a > c && b > c)
+		print_do_op("rra", stack_a, stack_b);
 }
 /*
 void	do_sort_five(t_stack **a, t_stack **b, int *order)

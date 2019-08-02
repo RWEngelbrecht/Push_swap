@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:13:34 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/27 14:54:29 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/02 09:48:56 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,41 +49,34 @@ void	insertionSort(t_stack **head)
 	}
 	*head = sorted;
 }
-*//* 
+*/ /*
 void	quicksort(int len, t_stack **a,t_stack **b_temp)
 {
-//	t_stack *b_temp;
-	int top_half_len;
-//	int half_len;
+	int half_len;
 	int avg;
 	int i;
 	int j;
 
-//	b_temp = NULL;
-	top_half_len = 0;
-	avg = find_avg(a);
+	half_len = len / 2;
 	i = 0;
 	if (len == 1)
 		return ;
-	while (i < len)
+//	normalize(a);
+	while (i < half_len)
 	{
-		if ((*a)->value >= avg)
+		if ((*a)->value <= avg)
 		{
-			ft_putendl_fd("pb", 1);
-			push_to(b_temp, a);
-			top_half_len++;
+			print_do_op("pb", a, b);
 		}
-		ft_putendl_fd("ra", 1);
-		rotate(a);
+		print_do_op("ra", a, b);
 		i++;
 	}
-	j = len - top_half_len;
-	while (j)
+	j = 0;
+	while (j < half_len)
 	{
-		ft_putendl_fd("rra", 1);
-		rev_rot(a);
-		j--;
-	}*//*
+		  
+		j++;
+	}
 	half_len = top_half_len;
 	while (half_len)
 	{
@@ -111,6 +104,69 @@ void	quicksort(int len, t_stack **a,t_stack **b_temp)
 }
 */
 
+t_stack		*normalize(t_stack **stack)
+{
+	t_stack *s_tmp;
+	t_stack *tmp;
+	t_stack *ret;
+	int *order;
+	int count;
+	int i;
+
+	s_tmp = *stack;
+	order = (int*)malloc(sizeof(int) * stack_len(stack));
+	i = -1;
+	while (s_tmp)
+	{
+		tmp = *stack;
+		count = 1;
+		while (tmp)
+		{
+			if (s_tmp->value > tmp->value)
+				count++;
+			tmp = tmp->next;
+		}
+		order[++i] = count;
+		s_tmp = s_tmp->next;
+	}
+	ret = malloc(sizeof(t_stack));
+	stack_new(&ret, order[i--]);
+	while (i >= 0)
+	{
+		push(&ret, order[i]);
+		i--;
+	}
+	return (ret);
+}
+
+void	do_sort_three(t_stack **a, t_stack **b, int *order)
+{
+	int i;
+
+	i = 0;
+	if (order[i] > order[i + 1] && order[i] < order[i + 2])
+		print_do_op("sa", a, b);
+	else if (order[i] > order[i + 1] &&
+				order[i + 1] > order[i + 2])
+	{
+		print_do_op("sa", a, b);
+		print_do_op("rra", a, b);
+	}
+	else if (order[i] > order[i + 1] &&
+				order[i + 1] < order[i + 2])
+		print_do_op("ra", a, b);
+	else if (order[i] < order[i + 1] &&
+				order[i] < order[i + 2])
+	{
+		print_do_op("sa", a, b);
+		print_do_op("ra", a, b);
+	}
+	else if (order[i] < order[i + 1] &&
+				order[i] > order[i + 2])
+		print_do_op("rra", a, b);
+}
+
+/*
 void	do_sort_three(t_stack **a, t_stack **b)
 {
 	if ((*a)->value > (*a)->next->value &&
@@ -139,8 +195,58 @@ void	do_sort_three(t_stack **a, t_stack **b)
 						(*a)->next->next->value)
 		print_do_op("rra", a, b);
 }
-#include <stdio.h>
-void	do_sort_five(t_stack **a, t_stack **b)
+*//*
+void	do_sort_five(t_stack **a, t_stack **b, int *order)
+{
+	int i;
+	int j;
+	int max;
+	int min;
+
+	i = 0;
+	j = stack_len(a);
+	max = order[i];
+	while (order[i])
+	{
+		if (order[i] > max)
+		{
+			max = order[i];
+			i = 0;
+		}
+		else
+			i++;
+	}
+	i = 0;
+	min = order[i];
+	while (order[i])
+	{
+		if (order[i] < min)
+		{
+			min = order[i];
+			i = 0;
+		}
+		else
+			i++;
+	}
+	i = 0;
+	while (stack_len(b) < 2)
+	{
+		if (order[i] < max && order[i] <= (min + 1))
+		{
+			print_do_op("pb", a, b);
+			i++;
+		}
+		else
+		{
+			print_do_op("ra", a, b);
+			i++;
+		}
+	}
+	do_sort_three(a, b, &(order[2]));
+}*/
+/*
+//DOESN'T ACCOUNT FOR STACK LEN CHANGES 
+void	do_sort_five(t_stack **a, t_stack **b) 
 {
 	print_do_op("pb", a, b);
 	print_do_op("pb", a, b);
@@ -148,19 +254,29 @@ void	do_sort_five(t_stack **a, t_stack **b)
 		do_sort_three(a, b);
 	while (*b != NULL)
 	{
-		//printf("b = %i\n(*a) = %i\n", b->value, (*a)->value);
 		if ((*b)->value < (*a)->value)
 		{
 			print_do_op("pa", a, b);
 		}
-		else if ((*b)->value > (*a)->value)
+		else if ((*b)->value < (*a)->next->value)
 		{
 			print_do_op("pa", a, b);
-			if ((*a)->value < (*a)->next->next->value)
-				print_do_op("sa", a, b);
-			else if ((*a)->value >
-						(*a)->next->next->next->next->value)
-				print_do_op("ra", a, b);
+			print_do_op("sa", a, b);
+		}
+		else if ((*b)->value >
+					(*a)->next->next->next->value)
+		{
+			print_do_op("pa", a, b);
+			print_do_op("ra", a, b);
+		}
+		else if ((*b)->value > (*a)->next->value &&
+					(*b)->value < (*a)->next->next->next->value)
+		{
+			print_do_op("pa", a, b);
+			print_do_op("rra", a, b);
+			print_do_op("sa", a, b);
+			print_do_op("ra", a, b);
+			print_do_op("ra", a, b);
 		}
 	}
-}
+}*/

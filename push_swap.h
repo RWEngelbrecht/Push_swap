@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/27 14:27:08 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/02 09:25:13 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct		s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+void				stack_new(t_stack **stack, int val);
 void				push(t_stack **stack, int val);
 int					pop(t_stack **stack);
 t_stack				*stackpopulate(int argc, char **argv);
@@ -47,8 +48,11 @@ int					dup_check(int ac, char **av);
 int					input_valid_string(int ac, char **av);
 int					input_valid_ints(int ac, char **av);
 int					find_avg(t_stack **stack);
-void				do_sort_three(t_stack **a, t_stack **b);
-void				do_sort_five(t_stack **a, t_stack **b);
+//void				do_sort_three(t_stack **a, t_stack **b);
+void				do_sort_three(t_stack **a, t_stack **b, int *order);
+//void				do_sort_five(t_stack **a, t_stack **b);
+void				do_sort_five(t_stack **a, t_stack **b, int *order);
 void				quicksort(int len, t_stack **a,t_stack **b_temp);
+t_stack				*normalize(t_stack **stack);
 
 #endif

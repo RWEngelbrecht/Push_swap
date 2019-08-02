@@ -6,11 +6,17 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:35:18 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/25 16:00:22 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/02 09:50:46 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	stack_new(t_stack **stack, int val)
+{
+	(*stack)->value = val;
+	(*stack)->next = NULL;
+}
 
 void	push(t_stack **stack, int val)
 {
@@ -46,8 +52,7 @@ t_stack		*str_stackpopulate(t_stack *stack, char **argv)
 	stack = malloc(sizeof(t_stack));
 	args = ft_strsplit(argv[1], ' ');
 	i = ft_wordcount(argv[1], ' ') - 1;
-	stack->value = ft_atoi(args[i]);
-	stack->next = NULL;
+	stack_new(&stack, ft_atoi(args[i]));
 	i--;
 	while (i >= 0)
 	{
@@ -60,9 +65,8 @@ t_stack		*str_stackpopulate(t_stack *stack, char **argv)
 t_stack		*stackpopulate(int argc, char **argv)
 {
 	t_stack	*stack;
-
 	int		i;
-
+	
 	if (!(stack = malloc(sizeof(t_stack))))
 	{
 		ft_putstr_fd("Error\n", 2);
@@ -71,16 +75,16 @@ t_stack		*stackpopulate(int argc, char **argv)
 	if (argc == 2)
 	{
 		stack = str_stackpopulate(stack, argv);
+		stack = normalize(&stack);
 		return (stack);
 	}
 	i = argc - 1;
-	stack->value = ft_atoi(argv[i]);
-	stack->next = NULL;
-	i--;
+	stack_new(&stack, ft_atoi(argv[i--]));
 	while (i >= 1)
 	{
 		push(&stack, ft_atoi(argv[i]));
 		i--;
 	}
+	stack = normalize(&stack);
 	return (stack);
 }

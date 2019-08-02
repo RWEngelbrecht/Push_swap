@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 09:37:03 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/02 13:06:25 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/02 17:57:45 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ int main (int argc, char *argv[])
 		if (is_sorted(stack_a = stackpopulate(argc, argv)))
 			return (0);
 		stacklen = stack_len(&stack_a);
-		if (stacklen == 3)
-			do_sort_three(&stack_a, &stack_b, order);
-		 else if (stacklen == 5)
-		 	do_sort_five(&stack_a, &stack_b, order);
+	//	if (stacklen == 3)
+	//		do_sort_three(&stack_a, &stack_b);
+	//	 else if (stacklen == 5)
+	//	 	do_sort_five(&stack_a, &stack_b);
 		
 	//	quicksort(stacklen, &stack_a, &stack_b);
 	}

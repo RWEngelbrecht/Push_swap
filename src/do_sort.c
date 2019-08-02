@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:13:34 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/02 17:04:35 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/02 18:08:43 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,56 +139,72 @@ void	do_sort_three(t_stack **stack_a, t_stack **stack_b)
 	else if (a < b && a > c && b > c)
 		print_do_op("rra", stack_a, stack_b);
 }
-/*
-void	do_sort_five(t_stack **a, t_stack **b, int *order)
-{
-	int i;
-	int j;
-	int max;
-	int min;
 
-	i = 0;
-	j = stack_len(a);
-	max = order[i];
-	while (order[i])
+int find_min_max(t_stack **stack, int type)
+{
+	int min_max;
+
+	min_max = (*stack)->value;
+	if (type == 1) //max
 	{
-		if (order[i] > max)
+		while (*stack)
 		{
-			max = order[i];
-			i = 0;
+			if (min_max > (*stack)->value)
+				min_max = (*stack)->value;
+			*stack = (*stack)->next;
 		}
-		else
-			i++;
+		return (min_max);
 	}
-	i = 0;
-	min = order[i];
-	while (order[i])
+	else if (type == 0) //min
 	{
-		if (order[i] < min)
+		while (*stack)
 		{
-			min = order[i];
-			i = 0;
+			if (min_max < (*stack)->value)
+				min_max = (*stack)->value;
+			*stack = (*stack)->next;
 		}
-		else
-			i++;
+		return (min_max);
 	}
-	i = 0;
-	while (stack_len(b) < 2)
-	{
-		if (order[i] < max && order[i] <= (min + 1))
-		{
-			print_do_op("pb", a, b);
-			i++;
-		}
-		else
-		{
-			print_do_op("ra", a, b);
-			i++;
-		}
-	}
-	do_sort_three(a, b, &(order[2]));
+	return(0);
 }
-*/
+
+void	do_sort_five(t_stack **a, t_stack **b)
+{
+	int first;
+	int second;
+	int last;
+
+	print_do_op("pa", a, b);
+	if (!is_sorted((*a)->next))
+		do_sort_three((*a)->next, b);
+	while (*b)
+	{
+		first = (*a)->value;
+		second = (*a)->next->value;
+		while (*a)
+		{
+			if ((*a)->next == NULL)
+				last = (*a)->value;
+			*a = (*a)->next;
+		}
+		*a = a;
+		if (first > second &&
+			(*a)->value < (*a)->next->next->value)
+		{
+			print_do_op("sa", a, b);
+		}
+		else if ((*a)->value > (min_max = find_min_max(a, 1)))
+			print_do_op("ra", a, b);
+		else if ((*a)->value > (*a)->next->next->value &&
+					(*a)->value < (*a)->next->next->next->value)
+			print_do_op("rra", a, b);
+			print_do_op("sa", a, b);
+			print_do_op("ra", a, b);
+			print_do_op("ra", a, b);
+
+	}
+}
+/*
 //DOESN'T ACCOUNT FOR STACK LEN CHANGES 
 void	do_sort_five(t_stack **a, t_stack **b) 
 {
@@ -225,4 +241,4 @@ void	do_sort_five(t_stack **a, t_stack **b)
 			print_do_op("ra", a, b);
 		}
 	}
-}
+}*/

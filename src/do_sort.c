@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:13:34 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/04 16:36:47 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/04 17:31:09 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,8 +142,9 @@ void	do_sort_five(t_stack **a, t_stack **b)
 	int		last;
 
 	print_do_op("pb", a, b);
-	if (!is_sorted((*a)->next))
-		do_sort_three(&(*a)->next, b);
+	print_do_op("pb", a, b);
+	if (!is_sorted(*a))
+		do_sort_three(&(*a), b); //do_sort_three(&(*a)->next, b);
 	while (!is_sorted(*a) || *b)
 	{
 		first = (*a)->value;

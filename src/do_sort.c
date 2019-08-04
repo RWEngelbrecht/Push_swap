@@ -170,38 +170,59 @@ int find_min_max(t_stack **stack, int type)
 
 void	do_sort_five(t_stack **a, t_stack **b)
 {
+	t_stack *tmp;
 	int first;
 	int second;
 	int last;
 
-	print_do_op("pa", a, b);
+	print_do_op("pb", a, b);
 	if (!is_sorted((*a)->next))
-		do_sort_three((*a)->next, b);
-	while (*b)
+		do_sort_three(&(*a)->next, b);
+	int i = 2;
+	while (i > 0)
 	{
-		first = (*a)->value;
-		second = (*a)->next->value;
-		while (*a)
+		tmp = *a;
+		first = tmp->value;
+		second = tmp->next->value;
+		while (tmp)
 		{
-			if ((*a)->next == NULL)
-				last = (*a)->value;
-			*a = (*a)->next;
+			if (tmp->next == NULL)
+				last = tmp->value;
+			tmp = tmp->next;
 		}
-		*a = a;
-		if (first > second &&
-			(*a)->value < (*a)->next->next->value)
-		{
+		printf("1st:%i 2nd:%i last:%i\n", first, second, last);
+		tmp = *a;
+		if (first > second && first < last && first < (*a)->next->next->value)
 			print_do_op("sa", a, b);
-		}
-		else if ((*a)->value > (min_max = find_min_max(a, 1)))
+		else if (first > last)
 			print_do_op("ra", a, b);
-		else if ((*a)->value > (*a)->next->next->value &&
-					(*a)->value < (*a)->next->next->next->value)
+		else if (stack_len(a) == 4 &&
+					first > (*a)->next->next->value && first < last)
+		{
 			print_do_op("rra", a, b);
 			print_do_op("sa", a, b);
 			print_do_op("ra", a, b);
 			print_do_op("ra", a, b);
-
+		}
+		else if (stack_len(a) == 5 &&
+					first < (*a)->next->next->next->value && first < last)
+		{
+			print_do_op("sa", a, b);
+			print_do_op("ra", a, b);
+			print_do_op("sa", a, b);
+			print_do_op("rra", a, b);
+		}
+		else if (stack_len(a) == 5 &&
+					first > (*a)->next->next->next->value && first < last)
+		{
+			print_do_op("rra", a, b);
+			print_do_op("sa", a, b);
+			print_do_op("ra", a, b);
+			print_do_op("ra", a, b);
+		}
+		if (*b)
+			print_do_op("pa", a, b);
+		i--;
 	}
 }
 /*

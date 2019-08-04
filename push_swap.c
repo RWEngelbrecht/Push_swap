@@ -32,10 +32,10 @@ int main (int argc, char *argv[])
 		if (is_sorted(stack_a = stackpopulate(argc, argv)))
 			return (0);
 		stacklen = stack_len(&stack_a);
-	//	if (stacklen == 3)
-	//		do_sort_three(&stack_a, &stack_b);
-	//	 else if (stacklen == 5)
-	//	 	do_sort_five(&stack_a, &stack_b);
+		if (stacklen == 3)
+			do_sort_three(&stack_a, &stack_b);
+		 else if (stacklen == 5)
+		 	do_sort_five(&stack_a, &stack_b);
 		
 	//	quicksort(stacklen, &stack_a, &stack_b);
 	}

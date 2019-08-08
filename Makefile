@@ -54,6 +54,7 @@ db:
 
 clean:
 	rm -fr $(CNME) $(PNME) $(CNME).dSYM $(PNME).dSYM
+	rm -f libft/*.o
 
 fclean: clean
 	rm -f libft/*.o libft/libft.a

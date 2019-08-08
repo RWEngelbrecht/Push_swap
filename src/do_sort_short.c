@@ -166,12 +166,8 @@ void	do_sort_five(t_stack **a, t_stack **b)
 	}
 }
 */
-#include <stdio.h>
 void	do_sort_five(t_stack **a, t_stack **b)
 {
-//	int		first;
-//	int		second;
-//	int		last;
 	int min;
 	int max;
 
@@ -189,7 +185,7 @@ void	do_sort_five(t_stack **a, t_stack **b)
 			print_do_op("rra", a, b);
 	}
 	if (!is_sorted(*a))
-		do_sort_three(&(*a), b);
+		do_sort_three(a, b);
 	while (!is_sorted(*a) || *b)
 	{
 		if ((*b)->value == max)

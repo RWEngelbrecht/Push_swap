@@ -17,11 +17,9 @@ int main (int argc, char *argv[])
 	t_stack	*stack_a;
 	t_stack *stack_b;
 	int stacklen;
-	int *order;
 
 	stack_b = NULL;
 	stacklen = 0;
-	order = NULL;
 	if (argc < 2)
 	{
 		ft_putstr_fd("Error\n", 2);
@@ -32,9 +30,6 @@ int main (int argc, char *argv[])
 		if (is_sorted(stack_a = stackpopulate(argc, argv)))
 			return (0);
 		stacklen = stack_len(&stack_a);
-//printf("\n STACK A:\n");	//REMOVE
-//print_stack(&stack_a);		//REMOVE
-
 		if (stacklen == 3)
 			do_sort_three(&stack_a, &stack_b);
 		 else if (stacklen >= 5)

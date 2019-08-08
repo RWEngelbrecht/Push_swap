@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:15:15 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/25 15:51:12 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/08 12:01:08 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	rev_rot(t_stack **a)
 
 	scnd_last = NULL;
 	last = *a;
+	if ((*a)->next == NULL)
+		return ;
 	while (last->next != NULL)
 	{
 		scnd_last = last;

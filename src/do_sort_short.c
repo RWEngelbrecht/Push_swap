@@ -63,7 +63,6 @@ int find_min_max(t_stack *stack, int type)
 				min_max = stack->value;
 			stack = stack->next;
 		}
-		return (min_max);
 	}
 	else if (type == 1) //max
 	{
@@ -73,9 +72,8 @@ int find_min_max(t_stack *stack, int type)
 				min_max = stack->value;
 			stack = stack->next;
 		}
-		return (min_max);
 	}
-	return(0);
+	return(min_max);
 }
 
 void	do_sort_three(t_stack **stack_a, t_stack **stack_b)

@@ -6,17 +6,17 @@
 /*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 09:37:03 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/09 16:26:36 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/09 16:43:14 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
-int main (int argc, char *argv[])
+int			main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
-	t_stack *stack_b;
-	int stacklen;
+	t_stack	*stack_b;
+	int		stacklen;
 
 	stack_b = NULL;
 	stacklen = 0;

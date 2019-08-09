@@ -6,7 +6,7 @@
 /*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:13:34 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/09 14:47:31 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/09 16:42:36 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ void	do_sort_five(t_stack **a, t_stack **b)
 
 void	do_sort_three(t_stack **stack_a, t_stack **stack_b)
 {
-	int a;
-	int b;
-	int c;
+	int	a;
+	int	b;
+	int	c;
 
 	a = (*stack_a)->value;
 	b = (*stack_a)->next->value;
@@ -112,8 +112,8 @@ void	do_sort_three(t_stack **stack_a, t_stack **stack_b)
 
 void	do_sort_five(t_stack **a, t_stack **b)
 {
-	int min;
-	int max;
+	int	min;
+	int	max;
 
 	min = find_min_max(*a, 0);
 	max = find_min_max(*a, 1);

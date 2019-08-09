@@ -6,7 +6,7 @@
 /*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:13:34 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/09 13:43:36 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/09 14:47:31 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,23 +82,6 @@ void	do_sort_five(t_stack **a, t_stack **b)
 	}
 }
 */
-/*
-void	do_sort_5_sub1(t_stack **a, t_stack **b)
-{
-	print_do_op("rra", a, b);
-	print_do_op("sa", a, b);
-	print_do_op("ra", a, b);
-	print_do_op("ra", a, b);
-}
-
-void    do_sort_5_sub2(t_stack **a, t_stack **b)
-{
-	print_do_op("sa", a, b);
-	print_do_op("ra", a, b);
-	print_do_op("sa", a, b);
-	print_do_op("rra", a, b);
-}
-*/
 
 void	do_sort_three(t_stack **stack_a, t_stack **stack_b)
 {
@@ -134,17 +117,7 @@ void	do_sort_five(t_stack **a, t_stack **b)
 
 	min = find_min_max(*a, 0);
 	max = find_min_max(*a, 1);
-	while (stack_len(a) > 3)
-	{
-		if ((*a)->value == min || (*a)->value == max)
-			print_do_op("pb", a, b);
-		else if ((*a)->next->value == min || (*a)->next->value == max)
-			print_do_op("ra", a, b);
-		else if (find_last(*a) == min || find_last(*a) == max)
-			print_do_op("rra", a, b);
-		else
-			print_do_op("rra", a, b);
-	}
+	push_min_max(a, b, min, max);
 	if (!is_sorted(*a))
 		do_sort_three(a, b);
 	while (!is_sorted(*a) || *b)

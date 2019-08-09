@@ -6,7 +6,7 @@
 /*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 13:40:13 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/09 13:43:01 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/09 14:47:34 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,17 @@ int		find_last(t_stack *stack)
 		stack = stack->next;
 	}
 	return (ret);
+}
+
+void	push_min_max(t_stack **a, t_stack **b, int min, int max)
+{
+	while (stack_len(a) > 3)
+	{
+		if ((*a)->value == min || (*a)->value == max)
+			print_do_op("pb", a, b);
+		else if ((*a)->next->value == min || (*a)->next->value == max)
+			print_do_op("ra", a, b);
+		else
+			print_do_op("rra", a, b);
+	}
 }

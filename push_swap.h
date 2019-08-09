@@ -6,7 +6,7 @@
 /*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/09 13:43:09 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/09 14:49:41 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int					input_valid_string(int ac, char **av);
 int					input_valid_ints(int ac, char **av);
 int					find_avg(t_stack **stack);
 int					find_min_max(t_stack *stack, int type);
+void				push_min_max(t_stack **a, t_stack **b, int min, int max);
 int					find_last(t_stack *stack);
 void				do_sort_three(t_stack **a, t_stack **b);
 void				do_sort_five(t_stack **a, t_stack **b);

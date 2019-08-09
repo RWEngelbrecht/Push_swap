@@ -3,23 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   normalize.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:34:41 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/04 16:06:45 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/09 16:24:36 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_stack		*normalize(t_stack **stack)
+int			*get_order(t_stack **stack)
 {
 	t_stack *s_tmp;
-	t_stack *tmp;
-	t_stack *ret;
-	int *order;
-	int count;
-	int i;
+	t_stack	*tmp;
+	int		*order;
+	int		count;
+	int		i;
 
 	s_tmp = *stack;
 	order = (int*)malloc(sizeof(int) * stack_len(stack));
@@ -37,6 +36,17 @@ t_stack		*normalize(t_stack **stack)
 		order[++i] = count;
 		s_tmp = s_tmp->next;
 	}
+	return (order);
+}
+
+t_stack		*normalize(t_stack **stack)
+{
+	t_stack	*ret;
+	int		*order;
+	int		i;
+
+	i = stack_len(stack) - 1;
+	order = get_order(stack);
 	ret = malloc(sizeof(t_stack));
 	stack_new(&ret, order[i--]);
 	while (i >= 0)

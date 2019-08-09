@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_sort.c                                          :+:      :+:    :+:   */
+/*   do_sort_short.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:13:34 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/08 14:28:00 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/09 13:43:36 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/* 
+/*
 void	sortedInsert(t_stack **head, t_stack *new_head)
 {
 	t_stack *current;
@@ -50,88 +50,6 @@ void	insertionSort(t_stack **head)
 	*head = sorted;
 }
 */
-int find_min_max(t_stack *stack, int type)
-{
-	int min_max;
-
-	min_max = stack->value;
-	if (type == 0) //min
-	{
-		while (stack)
-		{
-			if (min_max > stack->value)
-				min_max = stack->value;
-			stack = stack->next;
-		}
-	}
-	else if (type == 1) //max
-	{
-		while (stack)
-		{
-			if (min_max < stack->value)
-				min_max = stack->value;
-			stack = stack->next;
-		}
-	}
-	return(min_max);
-}
-
-void	do_sort_three(t_stack **stack_a, t_stack **stack_b)
-{
-	int a;
-	int b;
-	int c;
-
-	a = (*stack_a)->value;
-	b = (*stack_a)->next->value;
-	c = (*stack_a)->next->next->value;
-	if (a > b && a < c)
-		print_do_op("sa", stack_a, stack_b);
-	else if (a > b && b > c)
-	{
-		print_do_op("sa", stack_a, stack_b);
-		print_do_op("rra", stack_a, stack_b);
-	}
-	else if (a > b && b < c)
-		print_do_op("ra", stack_a, stack_b);
-	else if (a < b && a < c && b > c)
-	{
-		print_do_op("sa", stack_a, stack_b);
-		print_do_op("ra", stack_a, stack_b);
-	}
-	else if (a < b && a > c && b > c)
-		print_do_op("rra", stack_a, stack_b);
-}
-
-void	do_sort_5_sub1(t_stack **a, t_stack **b)
-{
-	print_do_op("rra", a, b);
-	print_do_op("sa", a, b);
-	print_do_op("ra", a, b);
-	print_do_op("ra", a, b);
-}
-
-void    do_sort_5_sub2(t_stack **a, t_stack **b)
-{
-	print_do_op("sa", a, b);
-	print_do_op("ra", a, b);
-	print_do_op("sa", a, b);
-	print_do_op("rra", a, b);
-}
-
-int		find_last(t_stack *stack)
-{
-	int ret;
-
-	ret = 0;
-	while (stack)
-	{
-		if (stack->next == NULL)
-			ret = stack->value;
-		stack = stack->next;
-	}
-	return (ret);
-}
 /*
 void	do_sort_five(t_stack **a, t_stack **b)
 {
@@ -164,6 +82,51 @@ void	do_sort_five(t_stack **a, t_stack **b)
 	}
 }
 */
+/*
+void	do_sort_5_sub1(t_stack **a, t_stack **b)
+{
+	print_do_op("rra", a, b);
+	print_do_op("sa", a, b);
+	print_do_op("ra", a, b);
+	print_do_op("ra", a, b);
+}
+
+void    do_sort_5_sub2(t_stack **a, t_stack **b)
+{
+	print_do_op("sa", a, b);
+	print_do_op("ra", a, b);
+	print_do_op("sa", a, b);
+	print_do_op("rra", a, b);
+}
+*/
+
+void	do_sort_three(t_stack **stack_a, t_stack **stack_b)
+{
+	int a;
+	int b;
+	int c;
+
+	a = (*stack_a)->value;
+	b = (*stack_a)->next->value;
+	c = (*stack_a)->next->next->value;
+	if (a > b && a < c)
+		print_do_op("sa", stack_a, stack_b);
+	else if (a > b && b > c)
+	{
+		print_do_op("sa", stack_a, stack_b);
+		print_do_op("rra", stack_a, stack_b);
+	}
+	else if (a > b && b < c)
+		print_do_op("ra", stack_a, stack_b);
+	else if (a < b && a < c && b > c)
+	{
+		print_do_op("sa", stack_a, stack_b);
+		print_do_op("ra", stack_a, stack_b);
+	}
+	else if (a < b && a > c && b > c)
+		print_do_op("rra", stack_a, stack_b);
+}
+
 void	do_sort_five(t_stack **a, t_stack **b)
 {
 	int min;

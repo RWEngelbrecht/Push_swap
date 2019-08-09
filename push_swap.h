@@ -6,7 +6,7 @@
 /*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/09 14:49:41 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/09 16:28:52 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int					find_last(t_stack *stack);
 void				do_sort_three(t_stack **a, t_stack **b);
 void				do_sort_five(t_stack **a, t_stack **b);
 //void				quicksort(int len, t_stack **a,t_stack **b_temp);
+int					*get_order(t_stack **stack);
 t_stack				*normalize(t_stack **stack);
 
 #endif

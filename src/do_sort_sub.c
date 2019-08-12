@@ -6,12 +6,15 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 13:40:13 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/12 09:37:57 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/12 12:40:51 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+// Finds either min or max value of a stack.
+// Set type to 0 for min, 1 for max.
+// Returns an int that exists in stack
 int		find_min_max(t_stack *stack, int type)
 {
 	int min_max;
@@ -38,6 +41,33 @@ int		find_min_max(t_stack *stack, int type)
 	return(min_max);
 }
 
+// Finds either min or max value's position from start of stack.
+// Set type to 0 for min, 1 for max.
+// Returns int that will be 1 >= n <= stack_len of stack.
+int		find_min_max_pos(t_stack *stack, int type)
+{
+	int	pos;
+
+	pos = 0;
+	if (type == 0)
+	{
+		while (stack->value != find_min_max(stack, 0))
+		{
+			stack = stack->next;
+			pos++;
+		}
+	}
+	else if (type == 1)
+	{
+		while (stack->value != find_min_max(stack, 1))
+		{
+			stack = stack->next;
+			pos++;
+		}
+	}
+	return (pos);
+}
+
 int		find_last(t_stack *stack)
 {
 	int ret;
@@ -52,9 +82,22 @@ int		find_last(t_stack *stack)
 	return (ret);
 }
 
-void	push_min_max(t_stack **a, t_stack **b, int min, int max)
+// void	push_min_max(t_stack **a, t_stack **b, int min, int max)
+// {
+// 	while (stack_len(a) > 3)
+// 	{
+// 		if ((*a)->value == min || (*a)->value == max)
+// 			print_do_op("pb", a, b);
+// 		else if ((*a)->next->value == min || (*a)->next->value == max)
+// 			print_do_op("ra", a, b);
+// 		else
+// 			print_do_op("rra", a, b);
+// 	}
+// }
+
+void	push_min_max(t_stack **a, t_stack **b, int min, int max, int stacklen)
 {
-	while (stack_len(a) > 3)
+	while (stack_len(a) > stacklen - ((stacklen == 4) ? 1 : 2))
 	{
 		if ((*a)->value == min || (*a)->value == max)
 			print_do_op("pb", a, b);

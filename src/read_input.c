@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 10:35:11 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/25 11:05:01 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/12 09:45:29 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		read_input(t_stack **a, t_stack **b, char **line)
 		else if (!(checkline(*line)))
 		{
 			free(*line);
-			//free stack
+			free(*a);
 			return (0);
 		}
 	}

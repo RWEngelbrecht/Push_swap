@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_sub.c                                         :+:      :+:    :+:   */
+/*   do_sort_sub.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 13:40:13 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/09 14:47:34 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/12 09:37:57 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,25 @@ void	push_min_max(t_stack **a, t_stack **b, int min, int max)
 		else
 			print_do_op("rra", a, b);
 	}
+}
+
+int		find_avg(t_stack **stack)
+{
+	t_stack	*tmp;
+	int		len;
+	int		i;
+	int		res;
+
+	tmp = *stack;
+	len = stack_len(&tmp);
+	i = 0;
+	res = 0;
+	while (i < len)
+	{
+		res += tmp->value;
+		tmp = tmp->next;
+		i++;
+	}
+	res /= len;
+	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/12 09:40:47 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/12 12:34:25 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ int					input_valid_ints(int ac, char **av);
 
 int					find_avg(t_stack **stack);
 int					find_min_max(t_stack *stack, int type);
-void				push_min_max(t_stack **a, t_stack **b, int min, int max);
+int					find_min_max_pos(t_stack *stack, int type);
+//void				push_min_max(t_stack **a, t_stack **b, int min, int max);
+void	push_min_max(t_stack **a, t_stack **b, int min, int max, int stacklen);
 int					find_last(t_stack *stack);
 
 int					*get_order(t_stack **stack);

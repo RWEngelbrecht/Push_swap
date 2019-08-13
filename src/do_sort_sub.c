@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 13:40:13 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/12 12:40:51 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/13 07:55:09 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,16 +95,16 @@ int		find_last(t_stack *stack)
 // 	}
 // }
 
-void	push_min_max(t_stack **a, t_stack **b, int min, int max, int stacklen)
+void	push_min_max(t_stack **dst, t_stack **src, int min, int max, int stacklen)
 {
-	while (stack_len(a) > stacklen - ((stacklen == 4) ? 1 : 2))
+	while (stack_len(dst) > stacklen - ((stacklen == 4) ? 1 : 2))
 	{
-		if ((*a)->value == min || (*a)->value == max)
-			print_do_op("pb", a, b);
-		else if ((*a)->next->value == min || (*a)->next->value == max)
-			print_do_op("ra", a, b);
+		if ((*dst)->value == min || (*dst)->value == max)
+			print_do_op("pb", dst, src);
+		else if ((*dst)->next->value == min || (*dst)->next->value == max)
+			print_do_op("ra", dst, src);
 		else
-			print_do_op("rra", a, b);
+			print_do_op("rra", dst, src);
 	}
 }
 

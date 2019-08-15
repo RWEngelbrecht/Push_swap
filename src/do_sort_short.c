@@ -6,50 +6,12 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:13:34 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/15 09:26:30 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/15 14:03:42 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/*
-void	sortedInsert(t_stack **head, t_stack *new_head)
-{
-	t_stack *current;
-
-	if (*head == NULL || (*head)->value >= new_head->value)
-	{
-		new_head->next = *head;
-		*head = new_head;
-	}
-	else
-	{
-		// find the location before the point of insertion
-		current = *head;
-		while(current->next != NULL && current->next->value < new_head->value)
-		{
-			current = current->next; // point to next
-		}
-		new_head->next = current->next;
-		current->next = new_head;
-	}
-}
-
-void	insertionSort(t_stack **head)
-{
-	t_stack *sorted = NULL;
-	t_stack *current = *head;
-	t_stack *next;
-
-	while (current != NULL)
-	{
-		next = current->next;
-		sortedInsert(&sorted, current);
-		current = next;
-	}
-	*head = sorted;
-}
-*/
 /*
 void	do_sort_five(t_stack **a, t_stack **b)
 {
@@ -120,7 +82,7 @@ void	do_sort_five(t_stack **a, t_stack **b)
 	push_min_max_b(a, b, 2, stack_len(a));
 	if (!is_sorted(*a))
 		do_sort_three(a, b);
-	while (!is_sorted(*a) || *b)
+	while (*b)
 	{
 		if ((*b)->value == max)
 		{

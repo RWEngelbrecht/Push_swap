@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 09:52:01 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/15 09:28:19 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/15 17:09:03 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,43 @@
 #include <stdio.h>
 
 /**
- ***				THE DO_SORT_HUNDRED GRAVEYARD			***
+ ***				THE DO_SORT GRAVEYARD			***
+void	sortedInsert(t_stack **head, t_stack *new_head)
+{
+	t_stack *current;
+
+	if (*head == NULL || (*head)->value >= new_head->value)
+	{
+		new_head->next = *head;
+		*head = new_head;
+	}
+	else
+	{
+		// find the location before the point of insertion
+		current = *head;
+		while(current->next != NULL && current->next->value < new_head->value)
+		{
+			current = current->next; // point to next
+		}
+		new_head->next = current->next;
+		current->next = new_head;
+	}
+}
+
+void	insertionSort(t_stack **head)
+{
+	t_stack *sorted = NULL;
+	t_stack *current = *head;
+	t_stack *next;
+
+	while (current != NULL)
+	{
+		next = current->next;
+		sortedInsert(&sorted, current);
+		current = next;
+	}
+	*head = sorted;
+}
 
 void	do_sort_hundred(t_stack **a, t_stack **b, int div)
 {
@@ -217,7 +253,7 @@ void	do_sort_hundred(t_stack **a, t_stack **b, int div)
 }
 */
 
-//Finds first occurance of any int between min and max, inclusive, in stack,
+//Finds first occurance of any int between r_min and r_max, inclusive, in stack,
 //starting at node number s_pos.
 int		find_in_range_pos(t_stack *stack, int r_min, int r_max, int s_pos)
 {
@@ -266,27 +302,31 @@ int		find_min_max_range(t_stack *stack, int r_min, int r_max, int type)
 
 void	do_sort_twenty(t_stack **a, t_stack **b)
 {
-	int range_max;
+	int r_max;
 	int i;
 
-	range_max = 0;
+	r_max = 0;
 	i = 1;
 	while (*a)
 	{
-		range_max += 5;
-		while (i <= range_max)
+		r_max += 20;
+		while (i <= r_max)
 		{
 			if (!(*a))
 				break ;
-			if ((*a)->value <= range_max)
+			if ((*a)->value <= r_max)
 			{
 				print_do_op("pb", a, b);
 				i++;
 			}
-			else
+			// else
+			// 	print_do_op("ra", a, b);
+			else if (find_in_range_pos(*a, find_min_max_range(*a, r_max - 20, r_max, 0), r_max, i) <= stack_len(a) / 2)
 				print_do_op("ra", a, b);
+			else if (find_in_range_pos(*a, find_min_max_range(*a, r_max-20, r_max, 0), r_max, i) > stack_len(a) / 2)
+				print_do_op("rra", a, b);
 		}
 	}
 	i--;
-
+	push_max_a(b, a, i, stack_len(b));
 }

@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 13:40:13 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/13 07:55:09 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/15 09:43:26 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,21 @@ int		find_min_max(t_stack *stack, int type)
 	return(min_max);
 }
 
+int		find_pos(t_stack *stack, int val)
+{
+	int pos;
+
+	pos = 1;
+	while (stack)
+	{
+		if (stack->value == val)
+			return (pos);
+		stack = stack->next;
+		pos++;
+	}
+	return (0);
+}
+
 // Finds either min or max value's position from start of stack.
 // Set type to 0 for min, 1 for max.
 // Returns int that will be 1 >= n <= stack_len of stack.
@@ -48,7 +63,7 @@ int		find_min_max_pos(t_stack *stack, int type)
 {
 	int	pos;
 
-	pos = 0;
+	pos = 1;
 	if (type == 0)
 	{
 		while (stack->value != find_min_max(stack, 0))
@@ -82,29 +97,44 @@ int		find_last(t_stack *stack)
 	return (ret);
 }
 
-// void	push_min_max(t_stack **a, t_stack **b, int min, int max)
+// void	push_min_max(t_stack **dst, t_stack **src, int min, int max, int stacklen)
 // {
-// 	while (stack_len(a) > 3)
+// 	while (stack_len(dst) > stacklen - ((stacklen == 4) ? 1 : 2))
 // 	{
-// 		if ((*a)->value == min || (*a)->value == max)
-// 			print_do_op("pb", a, b);
-// 		else if ((*a)->next->value == min || (*a)->next->value == max)
-// 			print_do_op("ra", a, b);
+// 		if ((*dst)->value == min || (*dst)->value == max)
+// 			print_do_op("pb", dst, src);
+// 		else if ((*dst)->next->value == min || (*dst)->next->value == max)
+// 			print_do_op("ra", dst, src);
 // 		else
-// 			print_do_op("rra", a, b);
+// 			print_do_op("rra", dst, src);
 // 	}
 // }
 
-void	push_min_max(t_stack **dst, t_stack **src, int min, int max, int stacklen)
+//Finds the min/max in a and pushes to b 'amount' times
+void	push_min_max_b(t_stack **a, t_stack **b, int amount, int a_len)
 {
-	while (stack_len(dst) > stacklen - ((stacklen == 4) ? 1 : 2))
+	int i;
+	int min;
+	int max;
+
+	i = 0;
+	min = find_min_max(*a, 0);
+	max = find_min_max(*a, 1);
+	while (i < amount)
 	{
-		if ((*dst)->value == min || (*dst)->value == max)
-			print_do_op("pb", dst, src);
-		else if ((*dst)->next->value == min || (*dst)->next->value == max)
-			print_do_op("ra", dst, src);
-		else
-			print_do_op("rra", dst, src);
+		if (find_pos(*a, min) == 1 || find_pos(*a, max) == 1)
+		{
+			print_do_op("pb", a, b);
+			i++;
+		}
+		else if (find_pos(*a, min) > a_len / 2
+					|| find_pos(*a, max) > a_len / 2)
+			print_do_op("rra", a, b);
+		else if (find_pos(*a, min) < a_len / 2
+					|| find_pos(*a, max) < a_len / 2)
+			print_do_op("ra", a, b);
+		if (find_pos(*a, min) == 0 && find_pos(*a, max) == 0 && i < amount)
+			push_min_max_b(a, b, amount - i, stack_len(a));
 	}
 }
 

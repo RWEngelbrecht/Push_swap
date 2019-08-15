@@ -6,14 +6,16 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 09:52:01 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/13 14:34:22 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/15 09:28:19 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include <stdio.h>
 
-/*
+/**
+ ***				THE DO_SORT_HUNDRED GRAVEYARD			***
+
 void	do_sort_hundred(t_stack **a, t_stack **b, int div)
 {
 	t_stack *tmp;
@@ -115,54 +117,6 @@ printf("cur_max = %d\n", cur_max);
 		}
 	}
 }
-*/
-
-//Finds first occurance of any int between min and max, inclusive, in stack,
-//starting at node number s_pos.
-int find_in_range_pos(t_stack *stack, int min, int max, int s_pos)
-{
-	while (s_pos <= stack_len(&stack) &&
-			!(stack->value >= min && stack->value <= max))
-	{
-		s_pos++;
-		stack = stack->next;
-	}
-	return (s_pos);
-}
-//Finds, in range min to max, the current lowest or highest int value
-int find_min_max_range(t_stack *stack, int min, int max, int type)
-{
-	int min_max;
-
-	min_max = 0;
-	if (type == 0)
-	{
-		while (!(stack->value >= min && stack->value <= max))
-			stack = stack->next;
-		min_max = stack->value;
-		while (stack)
-		{
-			if (stack->value >= min && stack->value <= max
-					&& stack->value < min_max)
-				min_max = stack->value;
-			stack = stack->next;
-		}
-	}
-	else if (type == 1)
-	{
-		while (!(stack->value >= min && stack->value <= max))
-			stack = stack->next;
-		min_max = stack->value;
-		while (stack)
-		{
-			if (stack->value >= min && stack->value <= max
-					&& stack->value > min_max)
-				min_max = stack->value;
-			stack = stack->next;
-		}
-	}
-	return (min_max);
-}
 
 void	do_sort_hundred(t_stack **a, t_stack **b, int div)
 {
@@ -260,4 +214,79 @@ void	do_sort_hundred(t_stack **a, t_stack **b, int div)
 				do_sort_hundred(a, b, 5);
 		}
 	}
+}
+*/
+
+//Finds first occurance of any int between min and max, inclusive, in stack,
+//starting at node number s_pos.
+int		find_in_range_pos(t_stack *stack, int r_min, int r_max, int s_pos)
+{
+	while (s_pos <= stack_len(&stack) &&
+			!(stack->value >= r_min && stack->value <= r_max))
+	{
+		s_pos++;
+		stack = stack->next;
+	}
+	return (s_pos);
+}
+//Finds, in range min to max, the current lowest or highest int value
+int		find_min_max_range(t_stack *stack, int r_min, int r_max, int type)
+{
+	int min_max;
+
+	min_max = 0;
+	if (type == 0)
+	{
+		while (!(stack->value >= r_min && stack->value <= r_max))
+			stack = stack->next;
+		min_max = stack->value;
+		while (stack)
+		{
+			if (stack->value >= r_min && stack->value <= r_max
+					&& stack->value < min_max)
+				min_max = stack->value;
+			stack = stack->next;
+		}
+	}
+	else if (type == 1)
+	{
+		while (!(stack->value >= r_min && stack->value <= r_max))
+			stack = stack->next;
+		min_max = stack->value;
+		while (stack)
+		{
+			if (stack->value >= r_min && stack->value <= r_max
+					&& stack->value > min_max)
+				min_max = stack->value;
+			stack = stack->next;
+		}
+	}
+	return (min_max);
+}
+
+void	do_sort_twenty(t_stack **a, t_stack **b)
+{
+	int range_max;
+	int i;
+
+	range_max = 0;
+	i = 1;
+	while (*a)
+	{
+		range_max += 5;
+		while (i <= range_max)
+		{
+			if (!(*a))
+				break ;
+			if ((*a)->value <= range_max)
+			{
+				print_do_op("pb", a, b);
+				i++;
+			}
+			else
+				print_do_op("ra", a, b);
+		}
+	}
+	i--;
+
 }

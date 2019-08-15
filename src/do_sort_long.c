@@ -6,12 +6,11 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 09:52:01 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/15 17:09:03 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/15 17:24:50 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdio.h>
 
 /**
  ***				THE DO_SORT GRAVEYARD			***
@@ -309,7 +308,7 @@ void	do_sort_twenty(t_stack **a, t_stack **b)
 	i = 1;
 	while (*a)
 	{
-		r_max += 20;
+		r_max += 5;
 		while (i <= r_max)
 		{
 			if (!(*a))

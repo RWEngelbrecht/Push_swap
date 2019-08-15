@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 09:37:03 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/13 09:03:58 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/15 16:43:08 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,21 @@ int			main(int argc, char *argv[])
 		if (is_sorted(stack_a = stackpopulate(argc, argv)))
 			return (0);
 		stacklen = stack_len(&stack_a);
-printf("\n STACK A:\n");	//REMOVE
-print_stack(&stack_a);		//REMOVE
-printf("\n STACK B:\n");	//REMOVE
-print_stack(&stack_b);		//REMOVE
+// printf("\n STACK A:\n");	//REMOVE
+// print_stack(&stack_a);		//REMOVE
+// printf("\n STACK B:\n");	//REMOVE
+// print_stack(&stack_b);		//REMOVE
 		if (stacklen == 3)
 			do_sort_three(&stack_a, &stack_b);
 		else if (stacklen > 3 && stacklen <= 5)
 			do_sort_five(&stack_a, &stack_b);
 		else if (stacklen > 5)
-			do_sort_hundred(&stack_a, &stack_b, 5);
+			do_sort_twenty(&stack_a, &stack_b);
 	//	quicksort(stacklen, &stack_a, &stack_b);
 	}
-printf("\n STACK A:\n");	//REMOVE
-print_stack(&stack_a);		//REMOVE
-printf("\n STACK B:\n");	//REMOVE
-print_stack(&stack_b);		//REMOVE
+// printf("\n STACK A:\n");	//REMOVE
+// print_stack(&stack_a);		//REMOVE
+// printf("\n STACK B:\n");	//REMOVE
+// print_stack(&stack_b);		//REMOVE
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/13 09:03:59 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/15 09:27:42 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ int					input_valid_string(int ac, char **av);
 int					input_valid_ints(int ac, char **av);
 
 int					find_avg(t_stack **stack);
+int					find_pos(t_stack *stack, int val);
 int					find_min_max(t_stack *stack, int type);
 int					find_min_max_pos(t_stack *stack, int type);
-//void				push_min_max(t_stack **a, t_stack **b, int min, int max);
-void				push_min_max(t_stack **dst, t_stack **src, int min, int max, int stacklen);
+void				push_min_max_b(t_stack **a, t_stack **b, int amount, int stacklen);
 int					find_last(t_stack *stack);
 
 int					*get_order(t_stack **stack);
@@ -67,7 +67,8 @@ t_stack				*normalize(t_stack **stack);
 
 void				do_sort_three(t_stack **a, t_stack **b);
 void				do_sort_five(t_stack **a, t_stack **b);
-void				do_sort_hundred(t_stack **a, t_stack **b, int div);
+void				do_sort_twenty(t_stack **a, t_stack **b);
+//void				do_sort_hundred(t_stack **a, t_stack **b);
 //void				quicksort(int len, t_stack **a,t_stack **b_temp);
 
 #endif

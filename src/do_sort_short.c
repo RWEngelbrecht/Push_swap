@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:13:34 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/12 12:35:01 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/15 09:26:30 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	do_sort_five(t_stack **a, t_stack **b)
 
 	min = find_min_max(*a, 0);
 	max = find_min_max(*a, 1);
-	push_min_max(a, b, min, max, stack_len(a));
+	push_min_max_b(a, b, 2, stack_len(a));
 	if (!is_sorted(*a))
 		do_sort_three(a, b);
 	while (!is_sorted(*a) || *b)

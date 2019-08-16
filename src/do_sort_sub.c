@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 13:40:13 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/15 16:47:22 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/16 08:36:29 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,19 +97,6 @@ int		find_last(t_stack *stack)
 	return (ret);
 }
 
-// void	push_min_max(t_stack **dst, t_stack **src, int min, int max, int stacklen)
-// {
-// 	while (stack_len(dst) > stacklen - ((stacklen == 4) ? 1 : 2))
-// 	{
-// 		if ((*dst)->value == min || (*dst)->value == max)
-// 			print_do_op("pb", dst, src);
-// 		else if ((*dst)->next->value == min || (*dst)->next->value == max)
-// 			print_do_op("ra", dst, src);
-// 		else
-// 			print_do_op("rra", dst, src);
-// 	}
-// }
-
 // Pushes min/max in 'a' to 'b' 'rpt' amount of times.
 void	push_min_max_b(t_stack **a, t_stack **b, int rpt, int a_len)
 {
@@ -133,13 +120,11 @@ void	push_min_max_b(t_stack **a, t_stack **b, int rpt, int a_len)
 		else if (find_pos(*a, min) < a_len / 2
 					|| find_pos(*a, max) < a_len / 2)
 			print_do_op("ra", a, b);
-		// if (find_pos(*a, min) == 0 && find_pos(*a, max) == 0 && i < rpt)
-		// 	push_min_max_b(a, b, rpt - i, stack_len(a));
 	}
 }
 
 //Pushes max value in 'b' to 'a' 'rpt' amount of times.
-void	push_max_a(t_stack **b, t_stack **a, int rpt, int b_len)
+void	push_max_a(t_stack **b, t_stack **a, int rpt)
 {
 	int i;
 	int max;
@@ -155,12 +140,9 @@ void	push_max_a(t_stack **b, t_stack **a, int rpt, int b_len)
 			if (*b)
 				max = find_min_max(*b, 1);
 		}
-		/**
-		 ** find quickest from both sides
-		 */
-		else if (find_pos(*b, max) > b_len / 2)
+		else if (find_pos(*b, max) > stack_len(b) / 2)
 			print_do_op("rrb", a, b);
-		else if (find_pos(*b, max) <= b_len / 2)
+		else if (find_pos(*b, max) <= stack_len(b) / 2)
 			print_do_op("rb", a, b);
 //		if (find_pos(*b, max) == 0 && i < rpt)
 //			push_max_a(a, b, rpt - i, stack_len(b));

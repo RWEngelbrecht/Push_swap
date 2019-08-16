@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/16 12:15:17 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/16 14:22:40 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int					find_last(t_stack *stack);
 int					*get_order(t_stack **stack);
 t_stack				*normalize(t_stack **stack);
 
+void				do_sort_two(t_stack **a, t_stack **b);
 void				do_sort_three(t_stack **a, t_stack **b);
 void				do_sort_five(t_stack **a, t_stack **b);
 void				do_sort_twenty(t_stack **a, t_stack **b);
@@ -73,5 +74,6 @@ void				do_sort_fifty(t_stack **a, t_stack **b);
 void				do_sort_hundred(t_stack **a, t_stack **b);
 void				do_sort_250(t_stack **a, t_stack **b);
 void				do_sort_500(t_stack **a, t_stack **b);
+void				do_sort_large(t_stack **a, t_stack **b);
 
 #endif

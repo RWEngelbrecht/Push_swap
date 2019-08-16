@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 09:37:03 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/15 16:43:08 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/16 08:29:50 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int			main(int argc, char *argv[])
 			do_sort_five(&stack_a, &stack_b);
 		else if (stacklen > 5)
 			do_sort_twenty(&stack_a, &stack_b);
-	//	quicksort(stacklen, &stack_a, &stack_b);
 	}
 // printf("\n STACK A:\n");	//REMOVE
 // print_stack(&stack_a);		//REMOVE

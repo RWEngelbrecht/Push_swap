@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 09:52:01 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/15 17:24:50 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/16 08:35:54 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,38 @@ void	insertionSort(t_stack **head)
 		current = next;
 	}
 	*head = sorted;
+}
+
+/*
+void	do_sort_five(t_stack **a, t_stack **b)
+{
+	int		first;
+	int		second;
+	int		last;
+
+	print_do_op("pb", a, b);
+	print_do_op("pb", a, b);
+	if (!is_sorted(*a))
+		do_sort_three(&(*a), b);
+	while (!is_sorted(*a) || *b)
+	{
+		first = (*a)->value;
+		second = (*a)->next->value;
+		last = find_last(*a);
+		if (first > second && first < last && first < (*a)->next->next->value)
+			print_do_op("sa", a, b);
+		else if (first > last)
+			print_do_op("ra", a, b);
+		else if (stack_len(a) == 4 &&
+					first > (*a)->next->next->value && first < last) //first < last
+			do_sort_5_sub1(a, b);
+		else if (stack_len(a) == 5 && first < (*a)->next->next->next->value && first < last) // first < last
+			do_sort_5_sub2(a, b);
+		else if (stack_len(a) == 5 && first > (*a)->next->next->next->value && first < last) //first < last
+			do_sort_5_sub1(a, b);
+		if (*b)
+			print_do_op("pa", a, b);
+	}
 }
 
 void	do_sort_hundred(t_stack **a, t_stack **b, int div)
@@ -264,6 +296,7 @@ int		find_in_range_pos(t_stack *stack, int r_min, int r_max, int s_pos)
 	}
 	return (s_pos);
 }
+
 //Finds, in range min to max, the current lowest or highest int value
 int		find_min_max_range(t_stack *stack, int r_min, int r_max, int type)
 {
@@ -308,7 +341,7 @@ void	do_sort_twenty(t_stack **a, t_stack **b)
 	i = 1;
 	while (*a)
 	{
-		r_max += 5;
+		r_max += 44;
 		while (i <= r_max)
 		{
 			if (!(*a))
@@ -318,8 +351,6 @@ void	do_sort_twenty(t_stack **a, t_stack **b)
 				print_do_op("pb", a, b);
 				i++;
 			}
-			// else
-			// 	print_do_op("ra", a, b);
 			else if (find_in_range_pos(*a, find_min_max_range(*a, r_max - 20, r_max, 0), r_max, i) <= stack_len(a) / 2)
 				print_do_op("ra", a, b);
 			else if (find_in_range_pos(*a, find_min_max_range(*a, r_max-20, r_max, 0), r_max, i) > stack_len(a) / 2)
@@ -327,5 +358,5 @@ void	do_sort_twenty(t_stack **a, t_stack **b)
 		}
 	}
 	i--;
-	push_max_a(b, a, i, stack_len(b));
+	push_max_a(b, a, i);
 }

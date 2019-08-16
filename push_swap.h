@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/15 10:28:00 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/16 08:29:46 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int					find_pos(t_stack *stack, int val);
 int					find_min_max(t_stack *stack, int type);
 int					find_min_max_pos(t_stack *stack, int type);
 void				push_min_max_b(t_stack **a, t_stack **b, int amount, int stacklen);
-void				push_max_a(t_stack **b, t_stack **a, int amount, int b_len);
+void				push_max_a(t_stack **b, t_stack **a, int amount);
 int					find_last(t_stack *stack);
 
 int					*get_order(t_stack **stack);
@@ -69,7 +69,5 @@ t_stack				*normalize(t_stack **stack);
 void				do_sort_three(t_stack **a, t_stack **b);
 void				do_sort_five(t_stack **a, t_stack **b);
 void				do_sort_twenty(t_stack **a, t_stack **b);
-//void				do_sort_hundred(t_stack **a, t_stack **b);
-//void				quicksort(int len, t_stack **a,t_stack **b_temp);
 
 #endif

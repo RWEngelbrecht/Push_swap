@@ -6,11 +6,17 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:13:34 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/16 08:33:47 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/16 12:04:49 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	do_sort_two(t_stack **a, t_stack **b)
+{
+	if ((*a)->value > (*a)->next->value)
+		print_do_op("sa", a, b);
+}
 
 void	do_sort_three(t_stack **stack_a, t_stack **stack_b)
 {
@@ -59,4 +65,35 @@ void	do_sort_five(t_stack **a, t_stack **b)
 		else if ((*b)->value == min)
 			print_do_op("pa", a, b);
 	}
+}
+
+void	do_sort_twenty(t_stack **a, t_stack **b)
+{
+	int r_max;
+	int i;
+
+	r_max = 0;
+	i = 1;
+	while (*a)
+	{
+		r_max += 5;
+		while (i <= r_max)
+		{
+			if (!(*a))
+				break ;
+			if ((*a)->value <= r_max)
+			{
+				print_do_op("pb", a, b);
+				i++;
+			}
+			else
+				print_do_op("ra", a, b);
+			// else if (find_in_range_pos(*a, find_min_max_range(*a, r_max - 20, r_max, 0), r_max, i) <= stack_len(a) / 2)
+			// 	print_do_op("ra", a, b);
+			// else if (find_in_range_pos(*a, find_min_max_range(*a, r_max-20, r_max, 0), r_max, i) > stack_len(a) / 2)
+			// 	print_do_op("rra", a, b);
+		}
+	}
+	i--;
+	push_max_a(b, a, i);
 }

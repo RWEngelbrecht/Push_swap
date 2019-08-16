@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 09:52:01 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/16 08:35:54 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/16 12:43:34 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	insertionSort(t_stack **head)
 	*head = sorted;
 }
 
-/*
 void	do_sort_five(t_stack **a, t_stack **b)
 {
 	int		first;
@@ -283,56 +282,143 @@ void	do_sort_hundred(t_stack **a, t_stack **b, int div)
 	}
 }
 */
+/**
+ ** PROBABLY DON'T NEED THIS **
+ */
+// //Finds first occurance of any int between r_min and r_max, inclusive, in stack,
+// //starting at node number s_pos.
+// int		find_in_range_pos(t_stack *stack, int r_min, int r_max, int s_pos)
+// {
+// 	while (s_pos <= stack_len(&stack) &&
+// 			!(stack->value >= r_min && stack->value <= r_max))
+// 	{
+// 		s_pos++;
+// 		stack = stack->next;
+// 	}
+// 	return (s_pos);
+// }
 
-//Finds first occurance of any int between r_min and r_max, inclusive, in stack,
-//starting at node number s_pos.
-int		find_in_range_pos(t_stack *stack, int r_min, int r_max, int s_pos)
+// //Finds, in range min to max, the current lowest or highest int value
+// int		find_min_max_range(t_stack *stack, int r_min, int r_max, int type)
+// {
+// 	int min_max;
+
+// 	min_max = 0;
+// 	if (type == 0)
+// 	{
+// 		while (!(stack->value >= r_min && stack->value <= r_max))
+// 			stack = stack->next;
+// 		min_max = stack->value;
+// 		while (stack)
+// 		{
+// 			if (stack->value >= r_min && stack->value <= r_max
+// 					&& stack->value < min_max)
+// 				min_max = stack->value;
+// 			stack = stack->next;
+// 		}
+// 	}
+// 	else if (type == 1)
+// 	{
+// 		while (!(stack->value >= r_min && stack->value <= r_max))
+// 			stack = stack->next;
+// 		min_max = stack->value;
+// 		while (stack)
+// 		{
+// 			if (stack->value >= r_min && stack->value <= r_max
+// 					&& stack->value > min_max)
+// 				min_max = stack->value;
+// 			stack = stack->next;
+// 		}
+// 	}
+// 	return (min_max);
+// }
+
+void	do_sort_fifty(t_stack **a, t_stack **b)
 {
-	while (s_pos <= stack_len(&stack) &&
-			!(stack->value >= r_min && stack->value <= r_max))
-	{
-		s_pos++;
-		stack = stack->next;
-	}
-	return (s_pos);
-}
+	int r_max;
+	int i;
 
-//Finds, in range min to max, the current lowest or highest int value
-int		find_min_max_range(t_stack *stack, int r_min, int r_max, int type)
-{
-	int min_max;
-
-	min_max = 0;
-	if (type == 0)
+	r_max = 0;
+	i = 1;
+	while (*a)
 	{
-		while (!(stack->value >= r_min && stack->value <= r_max))
-			stack = stack->next;
-		min_max = stack->value;
-		while (stack)
+		r_max += 13;
+		while (i <= r_max)
 		{
-			if (stack->value >= r_min && stack->value <= r_max
-					&& stack->value < min_max)
-				min_max = stack->value;
-			stack = stack->next;
+			if (!(*a))
+				break ;
+			if ((*a)->value <= r_max)
+			{
+				print_do_op("pb", a, b);
+				i++;
+			}
+			else
+				print_do_op("ra", a, b);
 		}
 	}
-	else if (type == 1)
-	{
-		while (!(stack->value >= r_min && stack->value <= r_max))
-			stack = stack->next;
-		min_max = stack->value;
-		while (stack)
-		{
-			if (stack->value >= r_min && stack->value <= r_max
-					&& stack->value > min_max)
-				min_max = stack->value;
-			stack = stack->next;
-		}
-	}
-	return (min_max);
+	i--;
+	push_max_a(b, a, i);
 }
 
-void	do_sort_twenty(t_stack **a, t_stack **b)
+void	do_sort_hundred(t_stack **a, t_stack **b)
+{
+	int r_max;
+	int i;
+
+	r_max = 0;
+	i = 1;
+	while (*a)
+	{
+		r_max += 15;
+		while (i <= r_max)
+		{
+			if (!(*a))
+				break ;
+			if ((*a)->value <= r_max)
+			{
+				print_do_op("pb", a, b);
+				i++;
+			}
+			else
+				print_do_op("ra", a, b);
+			// else if (find_in_range_pos(*a, find_min_max_range(*a, r_max - 20, r_max, 0), r_max, i) <= stack_len(a) / 2)
+			// 	print_do_op("ra", a, b);
+			// else if (find_in_range_pos(*a, find_min_max_range(*a, r_max-20, r_max, 0), r_max, i) > stack_len(a) / 2)
+			// 	print_do_op("rra", a, b);
+		}
+	}
+	i--;
+	push_max_a(b, a, i);
+}
+
+void	do_sort_250(t_stack **a, t_stack **b)
+{
+	int r_max;
+	int i;
+
+	r_max = 0;
+	i = 1;
+	while (*a)
+	{
+		r_max += 30;
+		while (i <= r_max)
+		{
+			if (!(*a))
+				break ;
+			if ((*a)->value <= r_max)
+			{
+				print_do_op("pb", a, b);
+				i++;
+			}
+			else
+				print_do_op("ra", a, b);
+		}
+	}
+	i--;
+	push_max_a(b, a, i);
+}
+
+void	do_sort_500(t_stack **a, t_stack **b)
 {
 	int r_max;
 	int i;
@@ -351,10 +437,8 @@ void	do_sort_twenty(t_stack **a, t_stack **b)
 				print_do_op("pb", a, b);
 				i++;
 			}
-			else if (find_in_range_pos(*a, find_min_max_range(*a, r_max - 20, r_max, 0), r_max, i) <= stack_len(a) / 2)
+			else
 				print_do_op("ra", a, b);
-			else if (find_in_range_pos(*a, find_min_max_range(*a, r_max-20, r_max, 0), r_max, i) > stack_len(a) / 2)
-				print_do_op("rra", a, b);
 		}
 	}
 	i--;

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/16 07:49:21 by rengelbr          #+#    #+#              #
-#    Updated: 2019/08/09 14:17:47 by rengelbr         ###   ########.fr        #
+#    Updated: 2019/08/16 08:55:29 by rengelbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ PSRC = push_swap.c \
 all: $(MAKELIB) $(CNME) $(PNME)
 
 $(MAKELIB):
-	$(MAKE) $(MAKELIB)
+	@$(MAKE) $(MAKELIB)
 
 $(CNME):
 	gcc $(FLGS) $(CSRC) -o $(CNME)

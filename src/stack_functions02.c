@@ -25,7 +25,7 @@ void	print_stack(t_stack **stack)
 	}
 }
 
-int		stack_len(t_stack **stack)   //MAKE LIBFT FUNCT CALLED FT_LSTLEN ??
+int		stack_len(t_stack **stack)
 {
 	t_stack	*tmp;
 	int		len;
@@ -39,3 +39,4 @@ int		stack_len(t_stack **stack)   //MAKE LIBFT FUNCT CALLED FT_LSTLEN ??
 	}
 	return (len);
 }
+

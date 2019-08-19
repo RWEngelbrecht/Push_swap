@@ -18,9 +18,9 @@ int	main(int argc, char *argv[])
 	t_stack *stack_b;
 	char	*line;
 
-	stack_a = NULL;
-	line = NULL;
-	stack_b = NULL;
+//	stack_a = NULL;
+//	line = NULL;
+//	stack_b = NULL;
 	if (argc < 2)
 		ERROR;
 	if ((input_valid(argc, argv)))

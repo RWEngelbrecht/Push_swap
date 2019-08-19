@@ -17,7 +17,7 @@ static void	choose_sort(t_stack *a, t_stack *b, int stacklen)
 	if (stacklen == 2)
 		do_sort_two(&a, &b);
 	else if (stacklen == 3)
-			do_sort_three(&a, &b);
+		do_sort_three(&a, &b);
 	else if (stacklen > 3 && stacklen <= 5)
 		do_sort_five(&a, &b);
 	else if (stacklen > 5 && stacklen <= 20)

@@ -12,9 +12,12 @@
 
 #include "../push_swap.h"
 
-// Finds either min or max value of a stack.
-// Set type to 0 for min, 1 for max.
-// Returns an int that exists in stack
+/** 
+** Finds either min or max value of a stack.
+** Set type to 0 for min, 1 for max.
+** Returns an int that exists in stack
+*/
+
 int		find_min_max(t_stack *stack, int type)
 {
 	int min_max;
@@ -38,7 +41,7 @@ int		find_min_max(t_stack *stack, int type)
 			stack = stack->next;
 		}
 	}
-	return(min_max);
+	return (min_max);
 }
 
 int		find_pos(t_stack *stack, int val)
@@ -56,9 +59,12 @@ int		find_pos(t_stack *stack, int val)
 	return (0);
 }
 
-// Finds either min or max value's position from start of stack.
-// Set type to 0 for min, 1 for max.
-// Returns int that will be 1 >= n <= stack_len of stack.
+/** 
+** Finds either min or max value's position from start of stack.
+** Set type to 0 for min, 1 for max.
+** Returns int that will be 1 >= n <= stack_len of stack.
+*/
+
 int		find_min_max_pos(t_stack *stack, int type)
 {
 	int	pos;
@@ -97,7 +103,10 @@ int		find_last(t_stack *stack)
 	return (ret);
 }
 
-// Pushes min/max in 'a' to 'b' 'rpt' amount of times.
+/**
+** Pushes min/max in 'a' to 'b' 'rpt' amount of times.
+*/
+
 void	push_min_max_b(t_stack **a, t_stack **b, int rpt, int a_len)
 {
 	int i;
@@ -123,7 +132,10 @@ void	push_min_max_b(t_stack **a, t_stack **b, int rpt, int a_len)
 	}
 }
 
-//Pushes max value in 'b' to 'a' 'rpt' amount of times.
+/**
+** Pushes max value in 'b' to 'a' 'rpt' amount of times.
+*/
+
 void	push_max_a(t_stack **b, t_stack **a, int rpt)
 {
 	int i;
@@ -144,8 +156,6 @@ void	push_max_a(t_stack **b, t_stack **a, int rpt)
 			print_do_op("rrb", a, b);
 		else if (find_pos(*b, max) <= stack_len(b) / 2)
 			print_do_op("rb", a, b);
-//		if (find_pos(*b, max) == 0 && i < rpt)
-//			push_max_a(a, b, rpt - i, stack_len(b));
 	}
 }
 

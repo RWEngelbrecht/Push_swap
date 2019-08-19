@@ -16,7 +16,7 @@ int		input_valid(int ac, char **av)
 {
 	if (ac == 2)
 	{
-		if(!input_valid_string(ac, av))
+		if (!input_valid_string(ac, av))
 			return (0);
 	}
 	else if (ac > 2)

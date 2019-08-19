@@ -12,9 +12,9 @@
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-#include "libft/libft.h"
-#include <unistd.h>
-#include <stdlib.h>
+# include "libft/libft.h"
+# include <unistd.h>
+# include <stdlib.h>
 
 # define ERROR {ft_putstr_fd("Error\n", 2); return (0);}
 
@@ -61,7 +61,8 @@ int					find_avg(t_stack **stack);
 int					find_pos(t_stack *stack, int val);
 int					find_min_max(t_stack *stack, int type);
 int					find_min_max_pos(t_stack *stack, int type);
-void				push_min_max_b(t_stack **a, t_stack **b, int amount, int stacklen);
+void				push_min_max_b(t_stack **a, t_stack **b,
+									int amount, int stacklen);
 void				push_max_a(t_stack **b, t_stack **a, int amount);
 int					find_last(t_stack *stack);
 

@@ -26,3 +26,4 @@ void	push_to(t_stack **dst, t_stack **src)
 		p_node->next = *dst;
 	*dst = p_node;
 }
+

@@ -27,3 +27,4 @@ void	swap_both(t_stack **a, t_stack **b)
 	swap(a);
 	swap(b);
 }
+

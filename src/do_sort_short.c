@@ -88,10 +88,6 @@ void	do_sort_twenty(t_stack **a, t_stack **b)
 			}
 			else
 				print_do_op("ra", a, b);
-			// else if (find_in_range_pos(*a, find_min_max_range(*a, r_max - 20, r_max, 0), r_max, i) <= stack_len(a) / 2)
-			// 	print_do_op("ra", a, b);
-			// else if (find_in_range_pos(*a, find_min_max_range(*a, r_max-20, r_max, 0), r_max, i) > stack_len(a) / 2)
-			// 	print_do_op("rra", a, b);
 		}
 	}
 	i--;

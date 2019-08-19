@@ -12,13 +12,13 @@
 
 #include "../push_swap.h"
 
-void	stack_new(t_stack **stack, int val)
+void		stack_new(t_stack **stack, int val)
 {
 	(*stack)->value = val;
 	(*stack)->next = NULL;
 }
 
-void	push(t_stack **stack, int val)
+void		push(t_stack **stack, int val)
 {
 	t_stack	*node;
 
@@ -28,7 +28,7 @@ void	push(t_stack **stack, int val)
 	*stack = node;
 }
 
-int		pop(t_stack **stack)
+int			pop(t_stack **stack)
 {
 	t_stack	*next_node;
 	int		ret;
@@ -66,7 +66,7 @@ t_stack		*stackpopulate(int argc, char **argv)
 {
 	t_stack	*stack;
 	int		i;
-	
+
 	if (!(stack = malloc(sizeof(t_stack))))
 	{
 		ft_putstr_fd("Error\n", 2);
@@ -85,3 +85,4 @@ t_stack		*stackpopulate(int argc, char **argv)
 	stack = normalize(&stack);
 	return (stack);
 }
+

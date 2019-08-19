@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/16 14:22:40 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/19 14:43:26 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "libft/libft.h"
 #include <unistd.h>
 #include <stdlib.h>
+
+# define ERROR {ft_putstr_fd("Error\n", 2); return (0);}
 
 typedef struct		s_stack
 {

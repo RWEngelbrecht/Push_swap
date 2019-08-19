@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 09:37:03 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/16 14:25:36 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/19 14:46:46 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,7 @@ int			main(int argc, char *argv[])
 
 	stack_b = NULL;
 	if (argc < 2)
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (0);
-	}
+		ERROR;
 	if (input_valid(argc, argv))
 	{
 		if (is_sorted(stack_a = stackpopulate(argc, argv)))

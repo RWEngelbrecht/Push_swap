@@ -6,7 +6,7 @@
 /*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 11:46:43 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/20 14:15:37 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/20 15:56:06 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,7 @@ int	main(int argc, char *argv[])
 	{
 		stack_a = stackpopulate(argc, argv);
 		if (!read_input(&stack_a, &stack_b, &line))
-		{
-			free(stack_a);
-			free(stack_b);
 			ERROR;
-		}
 	}
 	else
 		ERROR;
@@ -45,6 +41,6 @@ int	main(int argc, char *argv[])
 	}
 	else
 		ft_putstr_fd("KO\n", 1);
-//	print_stack(&stack_a);
+	print_stack(&stack_a);
 	return (0);
 }

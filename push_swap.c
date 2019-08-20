@@ -6,7 +6,7 @@
 /*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 09:37:03 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/20 12:50:35 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/20 15:58:56 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int			main(int argc, char *argv[])
 		if (is_sorted(stack_a = stackpopulate(argc, argv)))
 			return (0);
 		choose_sort(stack_a, stack_b, stack_len(&stack_a));
-//		free(stack_a);
 	}
 	return (0);
 }

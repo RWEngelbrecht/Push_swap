@@ -6,7 +6,7 @@
 /*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:34:41 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/20 15:32:36 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/20 16:14:09 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ int			*get_order(t_stack **stack)
 //	free(s_tmp);
 	return (order);
 }
+
+/**
+ * maybe normalize and return int* , so it doesn't cause leak when
+ * resetting stack to normalized values
+ */
 
 t_stack		*normalize(t_stack **stack)
 {

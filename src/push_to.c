@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_to.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:37:18 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/26 14:47:04 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/20 11:55:34 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ void	push_to(t_stack **dst, t_stack **src)
 	else
 		p_node->next = *dst;
 	*dst = p_node;
+//	free(p_node);
 }
 

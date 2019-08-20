@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sub_validator.c                                    :+:      :+:    :+:   */
+/*   validator_sub.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:44:01 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/25 11:31:50 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/20 14:23:08 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,16 @@ int		dup_check(int ac, char **av)
 		while (str[i + j] != '\0')
 		{
 			if (ft_strequ(str[i], str[i + j]))
+			{
+				free(*str);
 				return (0);
+			}
 			j++;
 		}
 		i++;
 	}
+	if (ac == 2)
+		free(*str);
 	return (1);
 }
 
@@ -68,9 +73,13 @@ int		input_valid_string(int ac, char **av)
 	while (arr[i])
 	{
 		if (ft_int_over(arr[i]))
+		{
+			free(*arr);
 			return (0);
+		}
 		i++;
 	}
+	free(*arr);
 	return (1);
 }
 

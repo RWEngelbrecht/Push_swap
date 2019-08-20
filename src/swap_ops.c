@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:38:39 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/25 11:05:20 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/20 14:48:27 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ void	swap(t_stack **b)
 
 void	swap_both(t_stack **a, t_stack **b)
 {
-	swap(a);
-	swap(b);
+	if (*a && *b)
+	{
+		swap(a);
+		swap(b);
+	}
 }
-

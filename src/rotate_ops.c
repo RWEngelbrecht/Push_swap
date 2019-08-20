@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_ops.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:15:15 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/08 12:01:08 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/20 14:50:08 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ void	rotate(t_stack **a)
 
 void	rot_both(t_stack **a, t_stack **b)
 {
-	rotate(a);
-	rotate(b);
+	if (*a && *b)
+	{
+		rotate(a);
+		rotate(b);
+	}
 }
 
 void	rev_rot(t_stack **a)
@@ -55,6 +58,9 @@ void	rev_rot(t_stack **a)
 
 void	rev_rot_both(t_stack **a, t_stack **b)
 {
-	rev_rot(a);
-	rev_rot(b);
+	if (*a && *b)
+	{
+		rev_rot(a);
+		rev_rot(b);
+	}
 }

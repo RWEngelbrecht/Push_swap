@@ -6,7 +6,7 @@
 /*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:34:41 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/09 16:24:36 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/20 13:45:07 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int			*get_order(t_stack **stack)
 		order[++i] = count;
 		s_tmp = s_tmp->next;
 	}
+	free(tmp);
+	free(s_tmp);
 	return (order);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:35:18 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/20 15:46:17 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/21 09:01:57 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		push(t_stack **stack, int val)
 	node->value = val;
 	node->next = *stack;
 	*stack = node;
-//	free(*new);
+//	free(node);
 }
 
 int			pop(t_stack **stack)
@@ -52,7 +52,7 @@ t_stack		*str_stackpopulate(t_stack *stack, char **argv)
 	int		i;
 	char	**args;
 
-//	stack = malloc(sizeof(t_stack));
+	stack = malloc(sizeof(t_stack));
 	i = ft_wordcount(argv[1], ' ') - 1;
 	args = ft_strsplit(argv[1], ' ');
 	stack_new(&stack, ft_atoi(args[i]));
@@ -62,7 +62,7 @@ t_stack		*str_stackpopulate(t_stack *stack, char **argv)
 		push(&stack, ft_atoi(args[i]));
 		i--;
 	}
-//	free(*args); //new
+	free(*args); //new
 	return (stack);
 }
 
@@ -90,4 +90,3 @@ t_stack		*stackpopulate(int argc, char **argv)
 	stack = normalize(&stack);
 	return (stack);
 }
-

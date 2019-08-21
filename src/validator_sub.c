@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validator_sub.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:44:01 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/20 14:23:08 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/21 09:05:48 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,3 @@ int		input_valid_ints(int ac, char **av)
 		return (0);
 	return (1);
 }
-

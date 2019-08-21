@@ -52,7 +52,7 @@ t_stack		*str_stackpopulate(t_stack *stack, char **argv)
 	int		i;
 	char	**args;
 
-	stack = malloc(sizeof(t_stack));
+//	stack = malloc(sizeof(t_stack));
 	i = ft_wordcount(argv[1], ' ') - 1;
 	args = ft_strsplit(argv[1], ' ');
 	stack_new(&stack, ft_atoi(args[i]));
@@ -80,13 +80,13 @@ t_stack		*stackpopulate(int argc, char **argv)
 	if (argc == 2)
 	{
 		stack = str_stackpopulate(stack, argv);
-		stack = normalize(&stack);
+//		stack = normalize(&stack);
 		return (stack);
 	}
 	i = argc - 1;
 	stack_new(&stack, ft_atoi(argv[i--]));
 	while (i >= 1)
 		push(&stack, ft_atoi(argv[i--]));
-	stack = normalize(&stack);
+//	stack = normalize(&stack);
 	return (stack);
 }

@@ -14,16 +14,18 @@
 
 void	push_to(t_stack **dst, t_stack **src)
 {
-	t_stack *p_node;
+//	t_stack *p_node;
 
 	if (!(*src))
 		return ;
-	p_node = malloc(sizeof(t_stack));
-	p_node->value = pop(src);
+//	p_node = malloc(sizeof(t_stack));
+//	p_node->value = pop(src);
 	if (!(*dst))
-		p_node->next = NULL;
+		stack_new(dst, pop(src));
+//		p_node->next = NULL;
 	else
-		p_node->next = *dst;
-	*dst = p_node;
+		push(dst, pop(src));
+//		p_node->next = *dst;
+//	*dst = p_node;
 //	free(p_node);
 }

@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 12:27:56 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/25 11:32:19 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/22 15:41:41 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,20 @@
 
 int		input_valid(int ac, char **av)
 {
+//	char *str;
+//	char **arr;
+
+//	str = *av;
 	if (ac == 2)
 	{
-		if (!input_valid_string(ac, av))
+//		arr = ft_strsplit(str, ' ');
+		if (!input_valid_string(/*ac, */av))
 			return (0);
+			//while(1);								////////
 	}
 	else if (ac > 2)
 	{
-		if (!input_valid_ints(ac, av))
+		if (!input_valid_ints(/*ac, */av))
 			return (0);
 	}
 	return (1);

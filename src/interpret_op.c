@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:27:12 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/07/27 14:21:38 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/22 10:23:00 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void	do_op(char *line, t_stack **a, t_stack **b)
 	else if (ft_strequ(line, "ss"))
 		swap_both(a, b);
 	else if (ft_strequ(line, "pa"))
-		push_to(a, b);
+		push_to(a, b);			//////
 	else if (ft_strequ(line, "pb"))
-		push_to(b, a);
+		push_to(b, a);			//////
 	else if (ft_strequ(line, "ra"))
 		rotate(a);
 	else if (ft_strequ(line, "rb"))

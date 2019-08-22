@@ -6,13 +6,13 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 13:40:13 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/16 08:36:29 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/22 10:45:12 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/** 
+/**
 ** Finds either min or max value of a stack.
 ** Set type to 0 for min, 1 for max.
 ** Returns an int that exists in stack
@@ -59,7 +59,7 @@ int		find_pos(t_stack *stack, int val)
 	return (0);
 }
 
-/** 
+/**
 ** Finds either min or max value's position from start of stack.
 ** Set type to 0 for min, 1 for max.
 ** Returns int that will be 1 >= n <= stack_len of stack.

@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:34:41 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/21 09:16:04 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/22 12:01:57 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ t_stack		*normalize(t_stack **stack)
 	i = stack_len(stack) - 1;
 	order = get_order(stack);
 //	ret = malloc(sizeof(t_stack)); //leak
-	stack_new(&ret, order[i--]);
+	//stack_new(&ret, order[i--]);
+	stack_new(order[i--]);
 	while (i >= 0)
 		push(&ret, order[i--]);
 	free(order);

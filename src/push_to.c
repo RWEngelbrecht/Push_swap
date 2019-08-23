@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:37:18 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/22 12:00:09 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/23 13:47:32 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	push_to(t_stack **dst, t_stack **src)		////
 	t_stack *s_next;
 //	t_stack *d_next;
 
+	if (!*src)
+		return ;
 	d_curr = NULL;
 	// d_next = NULL;
 	s_curr = *src;

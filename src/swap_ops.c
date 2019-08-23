@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:38:39 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/22 14:31:58 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/23 13:47:59 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ void	swap(t_stack **b)
 		tmp->next = (*b)->next;
 		(*b)->next = tmp;
 	}
+	else
+		return ;
+
 }
 
 void	swap_both(t_stack **a, t_stack **b)
@@ -32,4 +35,6 @@ void	swap_both(t_stack **a, t_stack **b)
 		swap(a);
 		swap(b);
 	}
+	else
+		return ;
 }

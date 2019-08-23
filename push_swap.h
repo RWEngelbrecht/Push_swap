@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/22 15:42:11 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/23 12:27:24 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct		s_stack
 t_stack				*stack_new(int val);
 void				push(t_stack **stack, int val);
 int					pop(t_stack **stack);
-t_stack				*stackpopulate(int argc, char **argv);
+t_stack				*stackpopulate(int argc, char **argv, t_stack **stack_a);
 //t_stack				*str_stackpopulate(t_stack *stack, char **argv);
 void				str_stackpopulate(t_stack **stack, char **argv);
 void				print_stack(t_stack **stack);

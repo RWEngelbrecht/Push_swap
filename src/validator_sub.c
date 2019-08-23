@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:44:01 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/22 16:22:48 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/23 12:17:12 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,22 +61,28 @@ int		dup_check(/*int ac, */char **arr)	/////
 
 int		input_valid_string(/*int ac, */char **av)
 {
-	char	**arr;
+	static char	**arr;
 	char	*str;
 	int		i;
 
 	str = av[1];					/////
 	arr = ft_strsplit(str, ' ');	/////
 	i = 0;
-	if (!only_digits(str))			/////
+	if (!only_digits(str))
+	{
+		free(arr);		/////
 		return (0);
+	}
 	if (!dup_check(/*ac, */arr))			/////
+	{
+		free(arr);
 		return (0);
+	}
 	while (arr[i])
 	{
 		if (ft_int_over(arr[i]))
 		{
-//			free(arr);
+			free(arr);
 			return (0);
 		}
 		i++;

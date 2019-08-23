@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:35:18 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/22 17:06:04 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/23 12:34:43 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,11 @@ t_stack		*stack_new(int val)
 void		push(t_stack **stack, int val)
 {
 //	t_stack *curr;
-	t_stack	*node;
+	t_stack	*node = NULL;
 
 //	curr = *stack;
 	node = stack_new(val);
 	// node = (t_stack*)malloc(sizeof(t_stack));
-	node->value = val;
 	node->next = *stack;
 //	node->next = curr;
 	*stack = node;
@@ -41,7 +40,7 @@ void		push(t_stack **stack, int val)
 
 int			pop(t_stack **stack)
 {
-	t_stack	*next_node;
+	t_stack	*next_node = NULL;
 	int		ret;
 
 	if (*stack == NULL)
@@ -96,14 +95,14 @@ void		str_stackpopulate(t_stack **stack, char **argv)
 //	return (stack);
 }
 
-t_stack		*stackpopulate(int argc, char **argv)
+t_stack		*stackpopulate(int argc, char **argv, t_stack **stack_a)
 {
 //	while(1);							////////////////////WHILE HERE
 	t_stack	*stack;
 //	t_stack *norm;
 	int		i;
 
-	stack = NULL;
+	stack = *stack_a;
 //	norm = NULL;
 //	if (!(stack = malloc(sizeof(t_stack))))
 //	{
@@ -113,9 +112,10 @@ t_stack		*stackpopulate(int argc, char **argv)
 	if (argc == 2)
 	{
 		str_stackpopulate(&stack, argv);
+		*stack_a = stack;
 //		norm = normalize(&stack);
 //		free(stack);
-		return (stack);
+		return (*stack_a);
 	}
 	i = argc - 1;
 	//stack_new(&stack, ft_atoi(argv[i--]));
@@ -124,5 +124,5 @@ t_stack		*stackpopulate(int argc, char **argv)
 		push(&stack, ft_atoi(argv[i--]));
 //	norm = normalize(&stack);
 //	free(stack);
-	return (stack);
+	return (*stack_a);
 }

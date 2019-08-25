@@ -6,7 +6,7 @@
 /*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/25 08:58:12 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/25 11:57:48 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,11 @@ typedef struct		s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-//void				stack_new(t_stack **stack, int val);
-t_stack				*stack_new(int val);
+//static t_stack				*new_node(int val);
 void				push(t_stack **stack, int val);
 int					pop(t_stack **stack);
-t_stack				*stackpopulate(int argc, char **argv/*, t_stack **stack_a*/);
-//t_stack				*str_stackpopulate(t_stack *stack, char **argv);
-void				str_stackpopulate(t_stack **stack, char **argv);
+t_stack				*stack_populate(int argc, char **argv);
+//static void				str_stack_populate(t_stack **stack, char **argv);
 void				print_stack(t_stack **stack);
 int					stack_len(t_stack **stack);
 
@@ -46,7 +44,7 @@ void				rev_rot_both(t_stack **a, t_stack **b);
 
 int					read_input(t_stack **a, t_stack **b, char **line);
 
-int					check_op(char *line);
+//static int			check_op(char *line);
 int					checkline(char *line);
 void				do_op(char *line, t_stack **a, t_stack **b);
 void				print_do_op(char *op, t_stack **a, t_stack **b);
@@ -54,10 +52,10 @@ void				print_do_op(char *op, t_stack **a, t_stack **b);
 int					is_sorted(t_stack *a);
 int					input_valid(int ac, char **av);
 
-int					only_digits(char *str);
-int					dup_check(/*int ac, */char **av);
-int					input_valid_string(/*int ac, */char **av);
-int					input_valid_ints(/*int ac, */char **av);
+//int					only_digits(char *str);
+//static int					dup_check(/*int ac, */char **av);
+int					input_valid_string(char **av);
+int					input_valid_ints(char **av);
 
 int					find_avg(t_stack **stack);
 int					find_pos(t_stack *stack, int val);
@@ -68,7 +66,7 @@ void				push_min_max_b(t_stack **a, t_stack **b,
 void				push_max_a(t_stack **b, t_stack **a, int amount);
 int					find_last(t_stack *stack);
 
-int					*get_order(t_stack **stack);
+//static int			*get_order(t_stack **stack);
 t_stack				*normalize(t_stack **stack);
 
 void				do_sort_two(t_stack **a, t_stack **b);

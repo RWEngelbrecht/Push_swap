@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_to.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:37:18 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/23 13:47:32 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/25 08:38:38 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ void	push_to(t_stack **dst, t_stack **src)		////
 		*src = s_curr;
 	}
 	else
-		*dst = stack_new(pop(src));		////
+		push(dst, pop(src));
+//		*dst = stack_new(pop(src));		////
 }

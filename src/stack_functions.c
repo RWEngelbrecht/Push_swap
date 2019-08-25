@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:35:18 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/23 14:27:57 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/25 08:17:40 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,6 @@ void		str_stackpopulate(t_stack **stack, char **argv)
 	while (i >= 0)
 	{
 		push(stack, ft_atoi(args[i]));
-		//while(1);
 		i--;
 	}
 //	free(args); //new
@@ -123,7 +122,6 @@ void		str_stackpopulate(t_stack **stack, char **argv)
 
 t_stack		*stackpopulate(int argc, char **argv/*, t_stack **stack_a*/)
 {
-//	while(1);							////////////////////WHILE HERE
 	t_stack	*stack;
 	t_stack *norm;
 	int		i;
@@ -141,8 +139,11 @@ t_stack		*stackpopulate(int argc, char **argv/*, t_stack **stack_a*/)
 		str_stackpopulate(&stack, argv);
 //		*stack_a = stack;
 		norm = normalize(&stack);
-		free(stack);
-//		while(1);
+		while (stack)		///////fixes leaks
+		{
+			free(stack);
+			stack = stack->next;
+		}
 		return (norm);
 	}
 	i = argc - 1;
@@ -151,7 +152,10 @@ t_stack		*stackpopulate(int argc, char **argv/*, t_stack **stack_a*/)
 	while (i >= 1)
 		push(&stack, ft_atoi(argv[i--]));
 	norm = normalize(&stack);
-	free(stack);
-//	while(1);
+	while (stack)				////fixes leaks
+	{
+		free(stack);
+		stack = stack->next;
+	}
 	return (norm);
 }

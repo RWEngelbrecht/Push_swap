@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   interpret_op.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:27:12 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/22 10:23:00 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/25 11:31:01 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int		check_op(char *line)
+static int	check_op(char *line)
 {
 	if (ft_strequ(line, "sa") || ft_strequ(line, "sb"))
 		return (1);
@@ -29,7 +29,7 @@ int		check_op(char *line)
 	return (0);
 }
 
-int		checkline(char *line)
+int			checkline(char *line)
 {
 	if (!line)
 		return (0);
@@ -38,7 +38,7 @@ int		checkline(char *line)
 	return (1);
 }
 
-void	do_op(char *line, t_stack **a, t_stack **b)
+void		do_op(char *line, t_stack **a, t_stack **b)
 {
 	if (ft_strequ(line, "sa"))
 		swap(a);
@@ -64,7 +64,7 @@ void	do_op(char *line, t_stack **a, t_stack **b)
 		rev_rot_both(a, b);
 }
 
-void	print_do_op(char *op, t_stack **a, t_stack **b)
+void		print_do_op(char *op, t_stack **a, t_stack **b)
 {
 	ft_putendl_fd(op, 1);
 	do_op(op, a, b);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_functions02.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 12:42:41 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/21 08:55:23 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/25 11:41:47 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,5 @@ int		stack_len(t_stack **stack)
 		len++;
 		tmp = tmp->next;
 	}
-//	free(tmp);
 	return (len);
 }

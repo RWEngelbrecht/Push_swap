@@ -3,77 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   validator_sub.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:44:01 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/23 12:17:12 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/25 11:57:30 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int		only_digits(char *str)
+static int		dup_check(char **arr)
 {
-	while (*str)
-	{
-		if (*str == '-')
-			str++;
-		if (!ft_isdigit(*str) && !ft_iswhitespace(*str))
-			return (0);
-		str++;
-	}
-	return (1);
-}
-
-int		dup_check(/*int ac, */char **arr)	/////
-{
-//	char	**str;
 	int		i;
 	int		j;
 
 	i = 0;
-//	str = NULL;
-//	if (ac == 2)
-//	{
-//		str = ft_strsplit(av[1], ' ');
-//		i = 0;
-//	}
-//	else
-//		str = av;
-	while (arr[i])			////
+	while (arr[i])
 	{
 		j = 1;
 		while (arr[i + j] != '\0')
 		{
 			if (ft_strequ(arr[i], arr[i + j]))
-			{
-			//	free(arr);     ///leak
 				return (0);
-			}
 			j++;
 		}
 		i++;
 	}
-//	if (ac == 2)				leak
-//	free(arr);
 	return (1);
 }
 
-int		input_valid_string(/*int ac, */char **av)
+int		input_valid_string(char **av)
 {
 	static char	**arr;
 	char	*str;
 	int		i;
 
-	str = av[1];					/////
-	arr = ft_strsplit(str, ' ');	/////
+	str = av[1];
+	arr = ft_strsplit(str, ' ');
 	i = 0;
-	if (!only_digits(str))
+	if (!ft_only_digits(str))
 	{
 		free(arr);		/////
 		return (0);
 	}
-	if (!dup_check(/*ac, */arr))			/////
+	if (!dup_check(arr))
 	{
 		free(arr);
 		return (0);
@@ -91,22 +64,22 @@ int		input_valid_string(/*int ac, */char **av)
 	return (1);
 }
 
-int		input_valid_ints(/*int ac, */char **av)
+int		input_valid_ints(char **av)
 {
 	int		i;
-	char **arr;			//////
+	char **arr;
 
 	i = 1;
-	arr = av;		/////
+	arr = av;
 	while (arr[i])
 	{
-		if (!only_digits(arr[i]))
+		if (!ft_only_digits(arr[i]))
 			return (0);
 		if (ft_int_over(arr[i]))
 			return (0);
 		i++;
 	}
-	if (!dup_check(/*ac, */arr))
+	if (!dup_check(arr))
 		return (0);
 	return (1);
 }

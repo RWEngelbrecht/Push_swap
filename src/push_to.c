@@ -6,7 +6,7 @@
 /*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:37:18 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/25 08:38:38 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/25 11:32:50 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,25 @@
 // //	free(p_node);
 // }
 
-void	push_to(t_stack **dst, t_stack **src)		////
+void	push_to(t_stack **dst, t_stack **src)
 {
 	t_stack *d_curr;
 	t_stack *s_curr;
 	t_stack *s_next;
-//	t_stack *d_next;
 
 	if (!*src)
 		return ;
 	d_curr = NULL;
-	// d_next = NULL;
 	s_curr = *src;
 	s_next = s_curr->next;
-	if (*dst)						/////
+	if (*dst)
 	{
 		d_curr = *dst;
-		s_curr->next = d_curr;			////
+		s_curr->next = d_curr;
 		*dst = s_curr;
 		s_curr = s_next;
 		*src = s_curr;
 	}
 	else
 		push(dst, pop(src));
-//		*dst = stack_new(pop(src));		////
 }

@@ -6,7 +6,7 @@
 /*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 13:40:13 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/25 08:46:04 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/25 11:21:18 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,44 +64,44 @@ int		find_pos(t_stack *stack, int val)
 ** Set type to 0 for min, 1 for max.
 ** Returns int that will be 1 >= n <= stack_len of stack.
 */
+//////////*****   NOT USELESS, BUT NOT BEING USED	**************
+// int		find_min_max_pos(t_stack *stack, int type)
+// {
+// 	int	pos;
 
-int		find_min_max_pos(t_stack *stack, int type)
-{
-	int	pos;
+// 	pos = 1;
+// 	if (type == 0)
+// 	{
+// 		while (stack->value != find_min_max(stack, 0))
+// 		{
+// 			stack = stack->next;
+// 			pos++;
+// 		}
+// 	}
+// 	else if (type == 1)
+// 	{
+// 		while (stack->value != find_min_max(stack, 1))
+// 		{
+// 			stack = stack->next;
+// 			pos++;
+// 		}
+// 	}
+// 	return (pos);
+// }
+//////////*****   NOT USELESS, BUT NOT BEING USED	************
+// int		find_last(t_stack *stack)
+// {
+// 	int ret;
 
-	pos = 1;
-	if (type == 0)
-	{
-		while (stack->value != find_min_max(stack, 0))
-		{
-			stack = stack->next;
-			pos++;
-		}
-	}
-	else if (type == 1)
-	{
-		while (stack->value != find_min_max(stack, 1))
-		{
-			stack = stack->next;
-			pos++;
-		}
-	}
-	return (pos);
-}
-
-int		find_last(t_stack *stack)
-{
-	int ret;
-
-	ret = 0;
-	while (stack)
-	{
-		if (stack->next == NULL)
-			ret = stack->value;
-		stack = stack->next;
-	}
-	return (ret);
-}
+// 	ret = 0;
+// 	while (stack)
+// 	{
+// 		if (stack->next == NULL)
+// 			ret = stack->value;
+// 		stack = stack->next;
+// 	}
+// 	return (ret);
+// }
 
 /**
 ** Pushes min/max in 'a' to 'b' 'rpt' amount of times.
@@ -158,24 +158,24 @@ void	push_max_a(t_stack **b, t_stack **a, int rpt)
 			print_do_op("rb", a, b);
 	}
 }
+//////////*****   NOT USELESS, BUT NOT BEING USED	************
+// int		find_avg(t_stack **stack)
+// {
+// 	t_stack	*tmp;
+// 	int		len;
+// 	int		i;
+// 	int		res;
 
-int		find_avg(t_stack **stack)
-{
-	t_stack	*tmp;
-	int		len;
-	int		i;
-	int		res;
-
-	tmp = *stack;
-	len = stack_len(&tmp);
-	i = 0;
-	res = 0;
-	while (i < len)
-	{
-		res += tmp->value;
-		tmp = tmp->next;
-		i++;
-	}
-	res /= len;
-	return (res);
-}
+// 	tmp = *stack;
+// 	len = stack_len(&tmp);
+// 	i = 0;
+// 	res = 0;
+// 	while (i < len)
+// 	{
+// 		res += tmp->value;
+// 		tmp = tmp->next;
+// 		i++;
+// 	}
+// 	res /= len;
+// 	return (res);
+// }

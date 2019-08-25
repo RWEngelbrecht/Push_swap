@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validator.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 12:27:56 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/22 15:41:41 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/25 11:59:13 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,14 @@
 
 int		input_valid(int ac, char **av)
 {
-//	char *str;
-//	char **arr;
-
-//	str = *av;
 	if (ac == 2)
 	{
-//		arr = ft_strsplit(str, ' ');
-		if (!input_valid_string(/*ac, */av))
+		if (!input_valid_string(av))
 			return (0);
-			//while(1);								////////
 	}
 	else if (ac > 2)
 	{
-		if (!input_valid_ints(/*ac, */av))
+		if (!input_valid_ints(av))
 			return (0);
 	}
 	return (1);
@@ -35,7 +29,7 @@ int		input_valid(int ac, char **av)
 
 int		is_sorted(t_stack *a)
 {
-	int		temp;
+	int	temp;
 
 	if (!a)
 		return (0);

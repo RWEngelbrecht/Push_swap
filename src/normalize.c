@@ -6,13 +6,13 @@
 /*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:34:41 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/25 08:14:13 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/25 11:31:38 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int			*get_order(t_stack **stack)
+static int	*get_order(t_stack **stack)
 {
 	t_stack *s_tmp;
 	t_stack	*tmp;
@@ -21,7 +21,7 @@ int			*get_order(t_stack **stack)
 	int		i;
 
 	s_tmp = *stack;
-	order = (int*)malloc(sizeof(int) * stack_len(stack));
+	order = (int *)malloc(sizeof(int) * stack_len(stack));
 	i = -1;
 	while (s_tmp)
 	{
@@ -38,11 +38,6 @@ int			*get_order(t_stack **stack)
 	}
 	return (order);
 }
-
-/**
- * maybe normalize and return int* , so it doesn't cause leak when
- * resetting stack to normalized values
- */
 
 t_stack		*normalize(t_stack **stack)
 {

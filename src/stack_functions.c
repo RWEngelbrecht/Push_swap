@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:35:18 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/25 11:36:28 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/26 07:43:03 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ static t_stack		*new_node(int val)
 
 void		push(t_stack **stack, int val)
 {
-	t_stack	*node = NULL;
+	t_stack	*node;
 
+	node = NULL;
 	node = new_node(val);
 	node->next = *stack;
 	*stack = node;
@@ -37,9 +38,10 @@ void		push(t_stack **stack, int val)
 
 int			pop(t_stack **stack)
 {
-	t_stack	*next_node = NULL;
+	t_stack	*next_node;
 	int		ret;
 
+	next_node = NULL;
 	if (*stack == NULL)
 		return (-1);
 	ret = -1;

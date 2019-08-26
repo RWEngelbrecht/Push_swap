@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 11:46:43 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/25 09:08:34 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/26 07:26:26 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char *argv[])
 	t_stack	*stack_a;
 	t_stack *stack_b;
 	char	*line;
-	char **args;
+	char	**args;
 
 	stack_a = NULL;
 	args = argv;
@@ -26,28 +26,15 @@ int	main(int argc, char *argv[])
 		ERROR;
 	if ((input_valid(argc, args)))
 	{
-		stack_a = stackpopulate(argc, args);
+		stack_a = stack_populate(argc, args);
 		if (!read_input(&stack_a, &stack_b, &line))
-		{
-			if (stack_a == malloc(sizeof(t_stack)))
-				free(stack_a);
 			ERROR;
-		}
 	}
 	else
 		ERROR;
 	if (is_sorted(stack_a) && !stack_b)
-	{
-		free(stack_a);
-		free(stack_b);
 		ft_putstr_fd("OK\n", 1);
-		return (0);
-	}
 	else
-	{
-		free(stack_a);    ////
-		free(stack_b);    ////
 		ft_putstr_fd("KO\n", 1);
-	}
 	return (0);
 }

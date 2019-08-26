@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 09:37:03 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/25 09:10:26 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/26 07:51:14 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	choose_sort(t_stack **a, t_stack **b, int stacklen)	///made 2x ptr
+static void	choose_sort(t_stack **a, t_stack **b, int stacklen)
 {
 	if (stacklen == 2)
 		do_sort_two(a, b);
@@ -47,7 +47,7 @@ int			main(int argc, char *argv[])
 		ERROR;
 	if (input_valid(argc, args))
 	{
-		stack_a = stackpopulate(argc, args);
+		stack_a = stack_populate(argc, args);
 		if (is_sorted(stack_a))
 			return (0);
 		choose_sort(&stack_a, &stack_b, stack_len(&stack_a));

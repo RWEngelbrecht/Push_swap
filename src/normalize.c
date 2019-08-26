@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   normalize.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:34:41 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/25 11:31:38 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/26 07:47:27 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ t_stack		*normalize(t_stack **stack)
 	ret = NULL;
 	i = stack_len(stack) - 1;
 	order = get_order(stack);
-	//stack_new(&ret, order[i--]);
-//	ret = stack_new(order[i--]);	//////leak
 	while (i >= 0)
 		push(&ret, order[i--]);
 	free(order);

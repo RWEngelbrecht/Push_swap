@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   interpret_op.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 14:27:12 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/25 11:31:01 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/26 07:14:11 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void		do_op(char *line, t_stack **a, t_stack **b)
 	else if (ft_strequ(line, "ss"))
 		swap_both(a, b);
 	else if (ft_strequ(line, "pa"))
-		push_to(a, b);			//////
+		push_to(a, b);
 	else if (ft_strequ(line, "pb"))
-		push_to(b, a);			//////
+		push_to(b, a);
 	else if (ft_strequ(line, "ra"))
 		rotate(a);
 	else if (ft_strequ(line, "rb"))
@@ -69,4 +69,3 @@ void		print_do_op(char *op, t_stack **a, t_stack **b)
 	ft_putendl_fd(op, 1);
 	do_op(op, a, b);
 }
-

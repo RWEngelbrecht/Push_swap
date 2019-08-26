@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_ops.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:15:15 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/25 10:55:51 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/26 11:00:40 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ void	rotate(t_stack **a)
 	t_stack	*first;
 	t_stack	*last;
 
-	if ((*a)->next == NULL || !*a)
+	if (!*a)
+		return ;
+	if ((*a)->next == NULL)
 		return ;
 	first = *a;
 	last = *a;
@@ -42,10 +44,12 @@ void	rev_rot(t_stack **a)
 	t_stack	*scnd_last;
 	t_stack	*last;
 
+	if (!*a)
+		return ;
+	if ((*a)->next == NULL)
+		return ;
 	scnd_last = NULL;
 	last = *a;
-	if ((*a)->next == NULL || !*a)
-		return ;
 	while (last->next != NULL)
 	{
 		scnd_last = last;

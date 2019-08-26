@@ -6,13 +6,13 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:35:18 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/26 07:43:03 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/26 10:49:11 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static t_stack		*new_node(int val)
+static t_stack	*new_node(int val)
 {
 	t_stack *new;
 
@@ -26,7 +26,7 @@ static t_stack		*new_node(int val)
 	return (new);
 }
 
-void		push(t_stack **stack, int val)
+void			push(t_stack **stack, int val)
 {
 	t_stack	*node;
 
@@ -36,7 +36,7 @@ void		push(t_stack **stack, int val)
 	*stack = node;
 }
 
-int			pop(t_stack **stack)
+int				pop(t_stack **stack)
 {
 	t_stack	*next_node;
 	int		ret;
@@ -66,7 +66,7 @@ static void		str_stack_populate(t_stack **stack, char **argv)
 	}
 }
 
-t_stack		*stack_populate(int argc, char **argv)
+t_stack			*stack_populate(int argc, char **argv)
 {
 	t_stack	*stack;
 	t_stack *norm;
@@ -78,11 +78,7 @@ t_stack		*stack_populate(int argc, char **argv)
 	{
 		str_stack_populate(&stack, argv);
 		norm = normalize(&stack);
-		while (stack)		///////fixes leaks
-		{
-			free(stack);
-			stack = stack->next;
-		}
+		stack_free(stack);
 		return (norm);
 	}
 	i = argc - 1;
@@ -90,10 +86,6 @@ t_stack		*stack_populate(int argc, char **argv)
 	while (i >= 1)
 		push(&stack, ft_atoi(argv[i--]));
 	norm = normalize(&stack);
-	while (stack)				////fixes leaks
-	{
-		free(stack);
-		stack = stack->next;
-	}
+	stack_free(stack);
 	return (norm);
 }

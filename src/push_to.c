@@ -3,36 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_to.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 10:37:18 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/25 11:32:50 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/26 10:22:20 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-/**
- * 		Work with next ptrs instead of this
- */
-
-// void	push_to(t_stack **dst, t_stack **src)
-// {
-// //	t_stack *p_node;
-
-// 	if (!(*src))
-// 		return ;
-// //	p_node = malloc(sizeof(t_stack));
-// //	p_node->value = pop(src);
-// 	if (!(*dst))
-// 		stack_new(dst, pop(src));
-// //		p_node->next = NULL;
-// 	else
-// 		push(dst, pop(src));
-// //		p_node->next = *dst;
-// //	*dst = p_node;
-// //	free(p_node);
-// }
 
 void	push_to(t_stack **dst, t_stack **src)
 {

@@ -3,27 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   do_sort_sub.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 13:40:13 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/25 11:21:18 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/26 11:00:14 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-/**
-** Finds either min or max value of a stack.
-** Set type to 0 for min, 1 for max.
-** Returns an int that exists in stack
-*/
 
 int		find_min_max(t_stack *stack, int type)
 {
 	int min_max;
 
 	min_max = stack->value;
-	if (type == 0) //min
+	if (type == 0)
 	{
 		while (stack)
 		{
@@ -32,7 +26,7 @@ int		find_min_max(t_stack *stack, int type)
 			stack = stack->next;
 		}
 	}
-	else if (type == 1) //max
+	else if (type == 1)
 	{
 		while (stack)
 		{
@@ -59,54 +53,6 @@ int		find_pos(t_stack *stack, int val)
 	return (0);
 }
 
-/**
-** Finds either min or max value's position from start of stack.
-** Set type to 0 for min, 1 for max.
-** Returns int that will be 1 >= n <= stack_len of stack.
-*/
-//////////*****   NOT USELESS, BUT NOT BEING USED	**************
-// int		find_min_max_pos(t_stack *stack, int type)
-// {
-// 	int	pos;
-
-// 	pos = 1;
-// 	if (type == 0)
-// 	{
-// 		while (stack->value != find_min_max(stack, 0))
-// 		{
-// 			stack = stack->next;
-// 			pos++;
-// 		}
-// 	}
-// 	else if (type == 1)
-// 	{
-// 		while (stack->value != find_min_max(stack, 1))
-// 		{
-// 			stack = stack->next;
-// 			pos++;
-// 		}
-// 	}
-// 	return (pos);
-// }
-//////////*****   NOT USELESS, BUT NOT BEING USED	************
-// int		find_last(t_stack *stack)
-// {
-// 	int ret;
-
-// 	ret = 0;
-// 	while (stack)
-// 	{
-// 		if (stack->next == NULL)
-// 			ret = stack->value;
-// 		stack = stack->next;
-// 	}
-// 	return (ret);
-// }
-
-/**
-** Pushes min/max in 'a' to 'b' 'rpt' amount of times.
-*/
-
 void	push_min_max_b(t_stack **a, t_stack **b, int rpt, int a_len)
 {
 	int i;
@@ -132,10 +78,6 @@ void	push_min_max_b(t_stack **a, t_stack **b, int rpt, int a_len)
 	}
 }
 
-/**
-** Pushes max value in 'b' to 'a' 'rpt' amount of times.
-*/
-
 void	push_max_a(t_stack **b, t_stack **a, int rpt)
 {
 	int i;
@@ -158,24 +100,3 @@ void	push_max_a(t_stack **b, t_stack **a, int rpt)
 			print_do_op("rb", a, b);
 	}
 }
-//////////*****   NOT USELESS, BUT NOT BEING USED	************
-// int		find_avg(t_stack **stack)
-// {
-// 	t_stack	*tmp;
-// 	int		len;
-// 	int		i;
-// 	int		res;
-
-// 	tmp = *stack;
-// 	len = stack_len(&tmp);
-// 	i = 0;
-// 	res = 0;
-// 	while (i < len)
-// 	{
-// 		res += tmp->value;
-// 		tmp = tmp->next;
-// 		i++;
-// 	}
-// 	res /= len;
-// 	return (res);
-// }

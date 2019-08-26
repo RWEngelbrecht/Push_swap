@@ -6,7 +6,7 @@
 #    By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/16 07:49:21 by rengelbr          #+#    #+#              #
-#    Updated: 2019/08/16 08:55:29 by rengelbr         ###   ########.fr        #
+#    Updated: 2019/08/26 11:14:34 by rengelbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,6 @@ clean:
 fclean: clean
 	rm -f libft/*.o libft/libft.a
 
-re: clean ps
+re: clean all
 
 redb: clean db

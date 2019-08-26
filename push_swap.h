@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:48:45 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/26 07:47:18 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/26 10:53:26 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int					pop(t_stack **stack);
 t_stack				*stack_populate(int argc, char **argv);
 void				print_stack(t_stack **stack);
 int					stack_len(t_stack **stack);
+void				stack_free(t_stack *stack);
 
 void				swap(t_stack **b);
 void				swap_both(t_stack **a, t_stack **b);

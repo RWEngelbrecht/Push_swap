@@ -6,7 +6,7 @@
 /*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 09:37:03 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/26 07:51:14 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/26 11:32:36 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int			main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	char **args;
+	char	**args;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -52,5 +52,7 @@ int			main(int argc, char *argv[])
 			return (0);
 		choose_sort(&stack_a, &stack_b, stack_len(&stack_a));
 	}
+	else
+		ERROR;
 	return (0);
 }

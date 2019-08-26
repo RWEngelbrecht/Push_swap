@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   stack_functions02.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rengelbr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rengelbr <rengelbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 12:42:41 by rengelbr          #+#    #+#             */
-/*   Updated: 2019/08/25 11:41:47 by rengelbr         ###   ########.fr       */
+/*   Updated: 2019/08/26 10:58:37 by rengelbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	stack_free(t_stack *stack)
+{
+	while (stack)
+	{
+		free(stack);
+		stack = stack->next;
+	}
+}
 
 void	print_stack(t_stack **stack)
 {
